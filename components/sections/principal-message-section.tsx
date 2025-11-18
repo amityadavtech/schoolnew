@@ -28,14 +28,14 @@ export function PrincipalMessageSection() {
                 <div className="flex-1 text-center md:text-left">
                   <Quote className="h-8 w-8 text-accent mb-4 mx-auto md:mx-0" />
                   <blockquote className="text-lg text-muted-foreground mb-6 text-pretty leading-relaxed italic">
-                    "At Pinnacle Academy, we believe that every child has the potential to achieve greatness. Our role
+                    "At Aira Bal Vidya Mandir Inter College, we believe that every child has the potential to achieve greatness. Our role
                     is to provide the nurturing environment, exceptional teaching, and comprehensive support that allows
                     each student to discover their unique talents and develop them to the fullest. We are not just
                     educating students; we are shaping the leaders, innovators, and compassionate citizens of tomorrow."
                   </blockquote>
                   <div>
                     <p className="font-serif font-semibold text-lg text-primary">Dr. Margaret Thompson</p>
-                    <p className="text-muted-foreground">Principal, Pinnacle Academy</p>
+                    <p className="text-muted-foreground">Principal, Aira Bal Vidya Mandir Inter College</p>
                     <p className="text-sm text-muted-foreground mt-1">
                       Ed.D. Educational Leadership, 25+ years experience
                     </p>

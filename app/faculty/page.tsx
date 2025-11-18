@@ -5,9 +5,9 @@ import { FacultyGridSection } from "@/components/sections/faculty-grid-section"
 import { FacultyStatsSection } from "@/components/sections/faculty-stats-section"
 
 export const metadata = {
-  title: "Faculty - Pinnacle Academy",
+  title: "Faculty - Aira Bal Vidya Mandir Inter College",
   description:
-    "Meet our exceptional faculty members who are dedicated to providing world-class education and mentorship at Pinnacle Academy.",
+    "Meet our exceptional faculty members who are dedicated to providing world-class education and mentorship at Aira Bal Vidya Mandir Inter College.",
 }
 
 export default function FacultyPage() {

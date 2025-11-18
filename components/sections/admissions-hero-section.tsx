@@ -21,7 +21,7 @@ export function AdmissionsHeroSection() {
             </h1>
           </div>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-medium font-sans">
-            Begin your journey at <span className="font-bold text-primary">Pinnacle Academy</span>, where academic excellence meets personal growth. We're excited to welcome passionate learners who are ready to make their mark on the world.
+            Begin your journey at <span className="font-bold text-primary">Aira Bal Vidya Mandir Inter College</span>, where academic excellence meets personal growth. We're excited to welcome passionate learners who are ready to make their mark on the world.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">

@@ -15,12 +15,12 @@ export function AboutHeroSection() {
         >
           <div className="flex flex-col items-center justify-center mb-6 gap-2 sm:flex-row">
             <GraduationCap className="h-10 w-10 sm:h-12 sm:w-12 text-accent mb-2 sm:mb-0 sm:mr-4" />
-            <h1 className="text-3xl font-extrabold font-sans tracking-tight sm:text-4xl md:text-6xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent drop-shadow-lg">
-              About Pinnacle Academy
+              <h1 className="text-3xl font-extrabold font-sans tracking-tight sm:text-4xl md:text-6xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent drop-shadow-lg">
+              About Aira Bal Vidya Mandir Inter College
             </h1>
           </div>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed font-[500] font-sans">
-            For nearly four decades, <span className="font-bold text-primary">Pinnacle Academy</span> has been at the forefront of educational excellence, nurturing young minds and shaping tomorrow's leaders through <span className="italic text-accent">innovative teaching</span>, comprehensive development, and unwavering commitment to student success.
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed font-[500] font-sans">
+            For nearly four decades, <span className="font-bold text-primary">Aira Bal Vidya Mandir Inter College</span> has been at the forefront of educational excellence, nurturing young minds and shaping tomorrow's leaders through <span className="italic text-accent">innovative teaching</span>, comprehensive development, and unwavering commitment to student success.
           </p>
           <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-8 mt-8">
             <div className="rounded-2xl shadow-lg bg-white/80 dark:bg-background/80 p-6 flex flex-col items-center text-center border border-accent/10">

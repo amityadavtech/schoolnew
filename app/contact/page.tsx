@@ -6,8 +6,8 @@ import { ContactInfoSection } from "@/components/sections/contact-info-section"
 import { MapSection } from "@/components/sections/map-section"
 
 export const metadata = {
-  title: "Contact Us - Pinnacle Academy",
-  description: "Get in touch with Pinnacle Academy. Find our location, contact information, and send us a message.",
+  title: "Contact Us - Aira Bal Vidya Mandir Inter College",
+  description: "Get in touch with Aira Bal Vidya Mandir Inter College. Find our location, contact information, and send us a message.",
 }
 
 export default function ContactPage() {

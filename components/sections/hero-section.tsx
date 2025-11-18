@@ -11,7 +11,7 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img src="/modern-school-campus-with-students-walking--bright.jpg" alt="Pinnacle Academy Campus" className="w-full h-full object-cover" />
+  <img src="/modern-school-campus-with-students-walking--bright.jpg" alt="Aira Bal Vidya Mandir Inter College Campus" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50" />
       </div>
 
@@ -34,7 +34,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto text-pretty leading-relaxed">
-            At Pinnacle Academy, we nurture young minds through innovative teaching methods, comprehensive development
+            At Aira Bal Vidya Mandir Inter College, we nurture young minds through innovative teaching methods, comprehensive development
             programs, and a commitment to academic excellence that prepares students for a bright future.
           </p>
 

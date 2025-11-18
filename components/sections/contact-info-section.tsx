@@ -52,7 +52,7 @@ export function ContactInfoSection() {
             </h2>
           </div>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed font-[500] font-sans">
-            Our dedicated team is here to assist you with any questions about admissions, academics, or student life at <span className="font-bold text-primary">Pinnacle Academy</span>.
+          Our dedicated team is here to assist you with any questions about admissions, academics, or student life at <span className="font-bold text-primary">Aira Bal Vidya Mandir Inter College</span>.
           </p>
           <div className="flex flex-col gap-6 md:grid md:grid-cols-3 md:gap-8 mt-8">
             {contactInfo.map((info, index) => (
@@ -84,7 +84,7 @@ export function ContactInfoSection() {
               </div>
             </div>
             <p className="text-primary-foreground/90 mb-6 max-w-2xl mx-auto">
-              Experience our beautiful campus firsthand. Schedule a tour to see our state-of-the-art facilities, meet our faculty, and discover what makes Pinnacle Academy special.
+              Experience our beautiful campus firsthand. Schedule a tour to see our state-of-the-art facilities, meet our faculty, and discover what makes Aira Bal Vidya Mandir Inter College special.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="secondary" size="lg">

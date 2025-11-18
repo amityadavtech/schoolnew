@@ -8,7 +8,8 @@ const milestones = [
   {
     year: "1985",
     title: "Foundation",
-    description: "Pinnacle Academy was established with a vision to provide quality education to 150 students.",
+    description:
+      "Aira Bal Vidya Mandir Inter College was established with a vision to provide quality education to 150 students.",
     icon: Building,
   },
   {

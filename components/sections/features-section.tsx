@@ -59,7 +59,7 @@ export function FeaturesSection() {
           className="text-center mb-8 sm:mb-12"
         >
           <h2 className="text-2xl font-extrabold font-sans tracking-tight sm:text-3xl md:text-4xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-3 sm:mb-4 ">
-            Why Choose Pinnacle Academy?
+            Why Choose Aira Bal Vidya Mandir Inter College?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base font-medium font-sans">
             We provide a comprehensive educational experience that nurtures academic excellence, character development, and lifelong learning.

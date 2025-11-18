@@ -24,25 +24,24 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-
-    if (username === "admin" && password === "pinnacle2024") {
-      setTimeout(() => {
-        toast({
-          title: "Login Successful",
-          description: "Welcome to the Gallery Admin Panel",
-        })
+    try {
+      const res = await fetch('/api/admin-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      })
+      const data = await res.json()
+      if (res.ok) {
+        // Server sets HttpOnly cookie 'admin_token' — client JS cannot read it which is more secure
+        toast({ title: 'Login Successful', description: 'Welcome to the Gallery Admin Panel' })
         onLogin()
-        setIsLoading(false)
-      }, 1000)
-    } else {
-      setTimeout(() => {
-        toast({
-          title: "Login Failed",
-          description: "Invalid username or password",
-          variant: "destructive",
-        })
-        setIsLoading(false)
-      }, 1000)
+      } else {
+        toast({ title: 'Login Failed', description: data.error || 'Invalid credentials', variant: 'destructive' })
+      }
+    } catch (err) {
+      toast({ title: 'Login Error', description: String(err), variant: 'destructive' })
+    } finally {
+      setIsLoading(false)
     }
   }
 

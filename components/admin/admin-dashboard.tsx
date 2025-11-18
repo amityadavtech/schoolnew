@@ -558,7 +558,7 @@ export function AdminDashboard() {
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="school-name">School Name</Label>
-                    <Input id="school-name" defaultValue="Pinnacle Academy" className="w-full p-2 border rounded-md" />
+                    <Input id="school-name" defaultValue="Aira Bal Vidya Mandir Inter College" className="w-full p-2 border rounded-md" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="contact-email">Contact Email</Label>

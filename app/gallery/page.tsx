@@ -4,9 +4,9 @@ import { GalleryHeroSection } from "@/components/sections/gallery-hero-section"
 import { PhotoGallerySection } from "@/components/sections/photo-gallery-section"
 
 export const metadata = {
-  title: "Gallery - Pinnacle Academy",
+  title: "Gallery - Aira Bal Vidya Mandir Inter College",
   description:
-    "Explore our vibrant school community through photos of campus life, events, and student achievements at Pinnacle Academy.",
+    "Explore our vibrant school community through photos of campus life, events, and student achievements at Aira Bal Vidya Mandir Inter College.",
 }
 
 export default function GalleryPage() {

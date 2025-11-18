@@ -83,9 +83,9 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
         // Upload to Cloudinary
         try {
           console.log("[cloudinary] Uploading image to API...")
-          const res = await fetch("/api/upload-image", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
+          const res = await fetch('/api/upload-image', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ image: dataUrl }),
           })
           const result = await res.json()
@@ -224,9 +224,9 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
       })
       // Upload to Cloudinary
       try {
-        const res = await fetch("/api/upload-image", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+        const res = await fetch('/api/upload-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ image: dataUrl }),
         })
         const result = await res.json()
@@ -370,17 +370,17 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           {/* Header */}
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-2 gap-4">
             <div>
-              <h1 className="text-3xl font-serif font-bold text-primary mb-2">Gallery Management</h1>
-              <p className="text-muted-foreground">Upload, edit, and manage school gallery images</p>
+              <h1 className="text-2xl md:text-3xl font-serif font-bold text-primary mb-1 md:mb-2">Gallery Management</h1>
+              <p className="text-muted-foreground text-sm md:text-base">Upload, edit, and manage school gallery images</p>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 w-full md:w-auto flex-col md:flex-row md:items-center">
               <Badge variant="secondary" className="bg-green-100 text-green-800">
                 <div className="w-2 h-2 bg-green-500 rounded-full mr-2" />
                 {images.length} Images
               </Badge>
-              <Button variant="outline" onClick={handleLogout}>
+              <Button variant="outline" onClick={handleLogout} className="w-full md:w-auto">
                 <LogOut className="h-4 w-4 mr-2" />
                 Logout
               </Button>
@@ -390,37 +390,37 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="p-4 sm:p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-muted-foreground text-sm">Total Images</p>
-                    <p className="text-2xl font-bold text-primary">{images.length}</p>
+                    <p className="text-muted-foreground text-xs sm:text-sm">Total Images</p>
+                    <p className="text-xl sm:text-2xl font-bold text-primary">{images.length}</p>
                   </div>
-                  <ImageIcon className="h-8 w-8 text-accent" />
+                  <ImageIcon className="h-6 sm:h-8 w-6 sm:w-8 text-accent" />
                 </div>
               </CardContent>
             </Card>
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="p-4 sm:p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-muted-foreground text-sm">Categories</p>
-                    <p className="text-2xl font-bold text-primary">{categories.length - 1}</p>
+                    <p className="text-muted-foreground text-xs sm:text-sm">Categories</p>
+                    <p className="text-xl sm:text-2xl font-bold text-primary">{categories.length - 1}</p>
                   </div>
-                  <Filter className="h-8 w-8 text-accent" />
+                  <Filter className="h-6 sm:h-8 w-6 sm:w-8 text-accent" />
                 </div>
               </CardContent>
             </Card>
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="p-4 sm:p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-muted-foreground text-sm">This Month</p>
-                    <p className="text-2xl font-bold text-primary">
+                    <p className="text-muted-foreground text-xs sm:text-sm">This Month</p>
+                    <p className="text-xl sm:text-2xl font-bold text-primary">
                       {images.filter((img: GalleryImage) => img.uploadDate.startsWith(currentMonth)).length}
                     </p>
                   </div>
-                  <Upload className="h-8 w-8 text-accent" />
+                  <Upload className="h-6 sm:h-8 w-6 sm:w-8 text-accent" />
                 </div>
               </CardContent>
             </Card>
@@ -429,9 +429,9 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
           {/* Controls */}
           <Card className="mb-8">
             <CardHeader>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between flex-col">
                 <CardTitle>Gallery Controls</CardTitle>
-                <Button onClick={handleUpload}>
+                <Button onClick={handleUpload} className="w-full md:w-auto">
                   <Plus className="h-4 w-4 mr-2" />
                   Upload Images
                 </Button>
@@ -473,7 +473,7 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
               <CardTitle>Gallery Images ({filteredImages.length})</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
                 {filteredImages.map((image: GalleryImage) => (
                   <motion.div
                     key={image.id}
@@ -489,21 +489,21 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
-                      <div className="flex gap-1">
-                        <Button size="sm" variant="secondary" onClick={() => handleView(image)}>
-                          <Eye className="h-3 w-3" />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                      <div className="flex gap-2">
+                        <Button size="sm" variant="secondary" onClick={() => handleView(image)} className="p-2 md:p-1">
+                          <Eye className="h-4 w-4" />
                         </Button>
-                        <Button size="sm" variant="secondary" onClick={() => handleEdit(image)}>
-                          <Edit className="h-3 w-3" />
+                        <Button size="sm" variant="secondary" onClick={() => handleEdit(image)} className="p-2 md:p-1">
+                          <Edit className="h-4 w-4" />
                         </Button>
                         <Button
                           size="sm"
                           variant="secondary"
-                          className="text-red-600 hover:text-red-700"
+                          className="text-red-600 hover:text-red-700 p-2 md:p-1"
                           onClick={() => handleDelete(image.id)}
                         >
-                          <Trash2 className="h-3 w-3" />
+                          <Trash2 className="h-4 w-4" />
                         </Button>
                       </div>
                     </div>
@@ -531,15 +531,15 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
 
         {/* Upload Dialog */}
         <Dialog open={isUploadDialogOpen} onOpenChange={setIsUploadDialogOpen}>
-          <DialogContent className="sm:max-w-[425px]">
+    <DialogContent className="w-full max-w-full sm:max-w-[425px] p-2">
             <DialogHeader>
               <DialogTitle>Upload Images</DialogTitle>
             </DialogHeader>
-            <div className="space-y-4">
-              <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center">
-                <Upload className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                <p className="text-muted-foreground mb-4">Click to select images or drag and drop</p>
-                <Button onClick={handleFileSelect}>Select Images</Button>
+              <div className="space-y-4">
+              <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-4 sm:p-8 text-center">
+                <Upload className="h-10 sm:h-12 w-10 sm:w-12 text-muted-foreground mx-auto mb-3 sm:mb-4" />
+                <p className="text-muted-foreground mb-3 sm:mb-4 text-sm sm:text-base">Click to select images or drag and drop</p>
+                <Button onClick={handleFileSelect} className="w-full sm:w-auto">Select Images</Button>
                 <input
                   ref={fileInputRef}
                   type="file"
@@ -558,7 +558,7 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
 
         {/* View Dialog */}
         <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
-          <DialogContent className="sm:max-w-[600px] w-full max-w-full overflow-x-hidden box-border">
+    <DialogContent className="sm:max-w-[600px] w-full max-w-full p-2 sm:p-4 overflow-x-hidden box-border">
             <DialogHeader>
               <DialogTitle>View Image</DialogTitle>
             </DialogHeader>
@@ -592,7 +592,7 @@ export function GalleryAdmin({ onLogout }: GalleryAdminProps) {
 
         {/* Edit Dialog */}
         <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-          <DialogContent className="sm:max-w-[425px]">
+    <DialogContent className="w-full max-w-full sm:max-w-[425px] p-2 sm:p-4">
             <DialogHeader>
               <DialogTitle>Edit Image</DialogTitle>
             </DialogHeader>

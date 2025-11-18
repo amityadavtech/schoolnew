@@ -12,7 +12,7 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Parent of Emma (Grade 8)",
     content:
-      "Pinnacle Academy has exceeded our expectations. The teachers are incredibly dedicated, and Emma has grown both academically and personally. The school's commitment to excellence is evident in everything they do.",
+  "Aira Bal Vidya Mandir Inter College has exceeded our expectations. The teachers are incredibly dedicated, and Emma has grown both academically and personally. The school's commitment to excellence is evident in everything they do.",
     rating: 5,
     avatar: "/professional-woman-smiling.png",
   },
@@ -21,7 +21,7 @@ const testimonials = [
     name: "Michael Chen",
     role: "Alumni, Class of 2020",
     content:
-      "The education I received at Pinnacle Academy prepared me exceptionally well for university. The critical thinking skills and confidence I developed here have been invaluable in my college journey.",
+  "The education I received at Aira Bal Vidya Mandir Inter College prepared me exceptionally well for university. The critical thinking skills and confidence I developed here have been invaluable in my college journey.",
     rating: 5,
     avatar: "/young-professional-man-smiling.png",
   },
@@ -65,7 +65,7 @@ export function TestimonialsSection() {
         >
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">What Our Community Says</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hear from parents, students, and alumni about their experiences at Pinnacle Academy.
+            Hear from parents, students, and alumni about their experiences at Aira Bal Vidya Mandir Inter College.
           </p>
         </motion.div>
 

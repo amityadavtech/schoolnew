@@ -6,9 +6,9 @@ import { AdmissionFormSection } from "@/components/sections/admission-form-secti
 import { RequirementsSection } from "@/components/sections/requirements-section"
 
 export const metadata = {
-  title: "Admissions - Pinnacle Academy",
+  title: "Admissions - Aira Bal Vidya Mandir Inter College",
   description:
-    "Join our exceptional learning community. Learn about our admission process, requirements, and apply to Pinnacle Academy today.",
+    "Join our exceptional learning community. Learn about our admission process, requirements, and apply to Aira Bal Vidya Mandir Inter College today.",
 }
 
 export default function AdmissionsPage() {

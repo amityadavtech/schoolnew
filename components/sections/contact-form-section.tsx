@@ -52,7 +52,7 @@ export function ContactFormSection() {
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-green-800 mb-4">Message Sent Successfully!</h3>
                 <p className="text-green-700 mb-6">
-                  Thank you for contacting Pinnacle Academy. We have received your message and will get back to you
+                  Thank you for contacting Aira Bal Vidya Mandir Inter College. We have received your message and will get back to you
                   within 24 hours.
                 </p>
                 <Button

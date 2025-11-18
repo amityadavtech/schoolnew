@@ -20,7 +20,7 @@ export function GalleryHeroSection() {
             </h1>
           </div>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed font-[500] font-sans">
-            Discover the vibrant life at <span className="font-bold text-primary">Pinnacle Academy</span> through our collection of memorable moments, achievements, and daily experiences that make our school community special.
+            Discover the vibrant life at <span className="font-bold text-primary">Aira Bal Vidya Mandir Inter College</span> through our collection of memorable moments, achievements, and daily experiences that make our school community special.
           </p>
           <div className="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8 mt-8">
             {[

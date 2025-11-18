@@ -6,9 +6,9 @@ import { ProgramsSection } from "@/components/sections/programs-section"
 import { ExtracurricularSection } from "@/components/sections/extracurricular-section"
 
 export const metadata = {
-  title: "Academics - Pinnacle Academy",
+  title: "Academics - Aira Bal Vidya Mandir Inter College",
   description:
-    "Explore our comprehensive academic programs, curriculum, and educational opportunities at Pinnacle Academy.",
+    "Explore our comprehensive academic programs, curriculum, and educational opportunities at Aira Bal Vidya Mandir Inter College.",
 }
 
 export default function AcademicsPage() {

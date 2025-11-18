@@ -19,7 +19,7 @@ const facultyMembers = [
     education: "Ph.D. Educational Leadership, Harvard University",
     experience: "20+ years in education",
     specialties: ["Educational Leadership", "Curriculum Development", "School Administration"],
-    bio: "Dr. Johnson brings over two decades of educational excellence to Pinnacle Academy. Her vision for innovative learning environments has transformed countless student experiences.",
+  bio: "Dr. Johnson brings over two decades of educational excellence to Aira Bal Vidya Mandir Inter College. Her vision for innovative learning environments has transformed countless student experiences.",
   },
   {
     id: 2,
@@ -147,7 +147,7 @@ export function FacultyGridSection() {
         >
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Meet Our Team</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get to know the dedicated professionals who make learning at Pinnacle Academy an exceptional experience.
+            Get to know the dedicated professionals who make learning at Aira Bal Vidya Mandir Inter College an exceptional experience.
             Each faculty member brings unique expertise and passion to their field.
           </p>
         </motion.div>

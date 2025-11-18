@@ -9,14 +9,14 @@ import { ScrollToTopButton } from "@/components/ui/scroll-to-top-button"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  title: "Pinnacle Academy - Excellence in Education",
+  title: "Aira Bal Vidya Mandir Inter College - Excellence in Education",
   description:
     "A premier educational institution committed to nurturing young minds and fostering academic excellence through innovative teaching methods and comprehensive development programs.",
   generator: "v0.app",
   keywords: "school, education, academy, learning, students, excellence, curriculum, admissions",
-  authors: [{ name: "Pinnacle Academy" }],
+  authors: [{ name: "Aira Bal Vidya Mandir Inter College" }],
   openGraph: {
-    title: "Pinnacle Academy - Excellence in Education",
+  title: "Aira Bal Vidya Mandir Inter College - Excellence in Education",
     description:
       "A premier educational institution committed to nurturing young minds and fostering academic excellence.",
     type: "website",

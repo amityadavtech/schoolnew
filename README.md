@@ -1,4 +1,4 @@
-# Pinnacle Academy - School Website
+# Aira Bal Vidya Mandir Inter College - School Website
 
 A comprehensive, modern school website built with Next.js 14, TypeScript, and Tailwind CSS.
 

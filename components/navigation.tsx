@@ -31,7 +31,9 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <GraduationCap className="h-8 w-8 text-primary" />
-            <span className="text-xl font-serif font-bold text-primary">Pinnacle Academy</span>
+            {/* Abbreviated name on very small screens, full name from sm+ */}
+            <span className="hidden sm:inline-block text-xl font-serif font-bold text-primary">Aira Bal Vidya Mandir Inter College</span>
+            <span className="sm:hidden text-lg font-serif font-bold text-primary">A.B.V.M.I.C</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -77,7 +79,7 @@ export function Navigation() {
               </SheetTrigger>
               <SheetContent 
                 side="right" 
-                className="w-[90vw] max-w-xs sm:max-w-sm p-0 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl rounded-l-2xl shadow-2xl border-none overflow-hidden animate-in fade-in slide-in-from-right duration-300"
+                className="w-full max-w-full sm:w-[90vw] sm:max-w-sm p-0 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl rounded-l-2xl shadow-2xl border-none overflow-hidden animate-in fade-in slide-in-from-right duration-300"
               >
                 <div className="flex flex-col h-full">
                   {/* SheetContent already provides a close button at top right */}

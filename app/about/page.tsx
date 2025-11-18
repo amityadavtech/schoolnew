@@ -7,8 +7,9 @@ import { PrincipalMessageSection } from "@/components/sections/principal-message
 import { AchievementsSection } from "@/components/sections/achievements-section"
 
 export const metadata = {
-  title: "About Us - Pinnacle Academy",
-  description: "Learn about Pinnacle Academy's history, mission, vision, and commitment to educational excellence.",
+  title: "About Us - Aira Bal Vidya Mandir Inter College",
+  description:
+    "Learn about Aira Bal Vidya Mandir Inter College's history, mission, vision, and commitment to educational excellence.",
 }
 
 export default function AboutPage() {

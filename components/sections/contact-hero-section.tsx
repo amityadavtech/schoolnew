@@ -20,7 +20,7 @@ export function ContactHeroSection() {
             </h1>
           </div>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed font-[500] font-sans max-w-2xl mx-auto">
-            We're here to answer your questions and help you learn more about the Pinnacle Academy experience. Reach out to us anytime - we'd love to hear from you.
+            We're here to answer your questions and help you learn more about the Aira Bal Vidya Mandir Inter College experience. Reach out to us anytime - we'd love to hear from you.
           </p>
 
           <div className="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 mt-8">

@@ -10,7 +10,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <GraduationCap className="h-8 w-8" />
-              <span className="text-xl font-serif font-bold">Pinnacle Academy</span>
+              <span className="text-xl font-serif font-bold">Aira Bal Vidya Mandir Inter College</span>
             </div>
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
               Nurturing young minds and fostering academic excellence through innovative teaching methods and
@@ -134,14 +134,14 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-primary-foreground/80" />
-                <span className="text-primary-foreground/80">info@pinnacleacademy.edu</span>
+                <span className="text-primary-foreground/80">info@abvmic.edu</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/80">
-          <p>&copy; 2024 Pinnacle Academy. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p>&copy; 2024 Aira Bal Vidya Mandir Inter College. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
       </div>
     </footer>
