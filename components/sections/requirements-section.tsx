@@ -50,7 +50,11 @@ const requirements = [
 
 export function RequirementsSection() {
   return (
-    <section className="py-16 bg-muted/30" id="requirements">
+    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950" id="requirements">
+      {/* Decorative blobs */}
+      <div className="pointer-events-none absolute -left-24 -top-16 w-80 h-80 rounded-full bg-gradient-to-br from-blue-200/30 to-indigo-200/20 blur-3xl opacity-60"></div>
+      <div className="pointer-events-none absolute -right-24 -bottom-16 w-72 h-72 rounded-full bg-gradient-to-br from-indigo-200/20 to-blue-200/10 blur-2xl opacity-50"></div>
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,8 +63,8 @@ export function RequirementsSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Admission Requirements</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-4">Admission Requirements</h2>
+          <p className="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             To ensure we can provide the best educational experience for your child, please prepare the following
             documents and information for your application.
           </p>
@@ -75,21 +79,21 @@ export function RequirementsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full">
+              <Card className="overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transition-shadow duration-300 border border-gray-100 h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mr-3">
-                      <req.icon className="h-5 w-5 text-accent" />
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mr-3">
+                      <req.icon className="h-5 w-5 text-blue-600" />
                     </div>
-                    {req.category}
+                    <span className="text-slate-900 font-semibold">{req.category}</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
                     {req.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-start">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                        <span className="text-muted-foreground text-sm">{item}</span>
+                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0" />
+                        <span className="text-slate-600 text-sm">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -106,7 +110,7 @@ export function RequirementsSection() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <Card className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-primary/90 via-primary/70 to-accent/80 text-primary-foreground shadow-2xl backdrop-blur-xl">
+          <Card className="relative overflow-hidden rounded-3xl border border-gray-100 bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-2xl backdrop-blur-xl">
             <CardContent className="p-8 sm:p-10 flex flex-col items-center text-center space-y-6">
 
               {/* Icon Circle */}
@@ -115,28 +119,28 @@ export function RequirementsSection() {
               </div>
 
               {/* Heading */}
-              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-white/90 to-accent bg-clip-text text-transparent drop-shadow-lg">
+              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white drop-shadow-lg">
                 Need Help?
               </h3>
 
               {/* Description */}
-              <p className="text-primary-foreground/85 leading-relaxed max-w-xl mx-auto text-sm sm:text-base font-medium">
+              <p className="text-white/90 leading-relaxed max-w-xl mx-auto text-sm sm:text-base font-medium">
                 Our admissions team is here to guide you through every step of the process. <br className="hidden sm:block" />
                 <span className="font-semibold text-white">Don't hesitate to reach out if you have questions or need assistance with your application.</span>
               </p>
 
               {/* Contact Options */}
               <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 w-full">
-                <div className="px-6 py-3 rounded-xl bg-white/90 text-primary font-semibold text-base shadow-md transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-lg cursor-pointer">
+                <div className="px-6 py-3 rounded-xl bg-white/90 text-blue-700 font-semibold text-base shadow-md transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-lg cursor-pointer">
                   📧 admissions@pinnacleacademy.edu
                 </div>
-                <div className="px-6 py-3 rounded-xl bg-white/90 text-primary font-semibold text-base shadow-md transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-lg cursor-pointer">
+                <div className="px-6 py-3 rounded-xl bg-white/90 text-blue-700 font-semibold text-base shadow-md transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-lg cursor-pointer">
                   📞 (555) 123-4567
                 </div>
               </div>
 
               {/* Subtle bottom glow effect */}
-              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-accent/40 blur-3xl rounded-full pointer-events-none"></div>
+              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-indigo-400/30 blur-3xl rounded-full pointer-events-none"></div>
             </CardContent>
           </Card>
 

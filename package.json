@@ -41,12 +41,10 @@
     "@vercel/analytics": "^1.5.0",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
-    "cloudinary": "^2.7.0",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
-    "formidable": "^3.5.4",
     "framer-motion": "^12.23.22",
     "geist": "^1.5.1",
     "immer": "latest",
@@ -65,12 +63,10 @@
     "tailwindcss-animate": "^1.0.7",
     "use-sync-external-store": "latest",
     "vaul": "^0.9.9",
-    "zod": "3.25.67",
-    "zustand": "latest"
+    "zod": "3.25.67"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
-    "@types/formidable": "^3.4.5",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",

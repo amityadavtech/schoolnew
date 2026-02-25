@@ -52,44 +52,58 @@ const achievements = [
 
 export function AchievementsSection() {
   return (
-    <section className="py-16 bg-secondary/30">
+    <section className="relative py-20 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Awards & Recognition</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Our commitment to excellence has been recognized through numerous awards and accolades from educational
-            organizations and community partners.
+          <div className="inline-block mb-4">
+            <Badge className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm">Awards & Recognition</Badge>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-3">Awards & Recognition</h2>
+          <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            Our commitment to excellence has been recognized through awards and accolades across academics, arts,
+            community and innovation.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {achievements.map((achievement, index) => (
             <motion.div
               key={`${achievement.year}-${achievement.title}`}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
               viewport={{ once: true }}
+              whileHover={{ y: -6 }}
+              className="group"
             >
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+              <Card className="h-full rounded-3xl border-0 shadow-md hover:shadow-2xl transition-shadow duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                      <achievement.icon className="h-6 w-6 text-accent" />
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/40 dark:to-indigo-900/40 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <achievement.icon className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-blue-700">{achievement.year}</div>
+                        <h3 className="font-serif font-semibold text-lg md:text-xl text-slate-900 dark:text-white">{achievement.title}</h3>
+                      </div>
                     </div>
-                    <Badge variant="secondary">{achievement.year}</Badge>
+                    <Badge className="bg-white/60 text-xs px-2 py-1 rounded-full text-slate-700">{achievement.category}</Badge>
                   </div>
-                  <h3 className="font-serif font-semibold text-lg mb-2 text-balance">{achievement.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-3 text-pretty">{achievement.description}</p>
-                  <Badge variant="outline" className="text-xs">
-                    {achievement.category}
-                  </Badge>
+
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">{achievement.description}</p>
+
+                  <div className="flex items-center gap-3">
+                    <div className="text-xs text-slate-500">Recognized</div>
+                    <div className="flex-1 border-t border-slate-100" />
+                    <div className="text-xs text-slate-500">{achievement.year}</div>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>

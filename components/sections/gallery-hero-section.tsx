@@ -5,7 +5,11 @@ import { Camera, Users, Calendar, Trophy } from "lucide-react"
 
 export function GalleryHeroSection() {
   return (
-    <section className="relative pt-[10px] pb-16 sm:pt-[10px] sm:pb-24 bg-gradient-to-br from-primary/5 to-accent/5">
+    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+      {/* Decorative blobs */}
+      <div className="pointer-events-none absolute -left-24 -top-16 w-80 h-80 rounded-full bg-gradient-to-br from-blue-200/30 to-indigo-200/20 blur-3xl opacity-60"></div>
+      <div className="pointer-events-none absolute -right-24 -bottom-16 w-72 h-72 rounded-full bg-gradient-to-br from-indigo-200/20 to-blue-200/10 blur-2xl opacity-50"></div>
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -13,9 +17,11 @@ export function GalleryHeroSection() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <div className="flex flex-col items-center justify-center mb-6 gap-2 sm:flex-row">
-            <Camera className="h-10 w-10 sm:h-12 sm:w-12 text-accent mb-2 sm:mb-0 sm:mr-4" />
-            <h1 className="text-3xl font-extrabold font-sans tracking-tight sm:text-4xl md:text-6xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent drop-shadow-lg">
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-center mb-6">
+            <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Camera className="w-7 h-7 text-blue-600" />
+            </div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
               Our Gallery
             </h1>
           </div>
@@ -31,15 +37,15 @@ export function GalleryHeroSection() {
             ].map((item, index) => (
               <div
                 key={item.label}
-                className="rounded-2xl shadow-lg bg-white/80 dark:bg-background/80 p-6 flex flex-col items-center text-center border border-accent/10"
+                className="rounded-2xl p-6 bg-white shadow-md hover:shadow-2xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center text-center"
               >
-                <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-3">
-                  <item.icon className="h-7 w-7 text-accent" />
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mb-3">
+                  <item.icon className="h-7 w-7 text-blue-600" />
                 </div>
-                <div className="text-2xl font-bold text-primary">{item.count}</div>
-                <div className="font-serif font-semibold text-lg sm:text-xl mb-1 text-primary">{item.label}</div>
+                <div className="text-2xl font-bold text-slate-900">{item.count}</div>
+                <div className="font-serif font-semibold text-lg sm:text-xl mb-1 text-slate-600">{item.label}</div>
               </div>
-            ))}
+            ))} 
           </div>
         </motion.div>
       </div>

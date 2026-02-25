@@ -25,55 +25,68 @@ export function Navigation() {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 overflow-x-hidden">
-      <div className="container mx-auto px-4 overflow-x-hidden">
-        <div className="flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full bg-white/60 dark:bg-slate-900/60 backdrop-blur border-b border-gray-100 dark:border-slate-800">
+      <div className="container mx-auto px-3 sm:px-4">
+        <div className="flex h-14 sm:h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <GraduationCap className="h-8 w-8 text-primary" />
-            {/* Abbreviated name on very small screens, full name from sm+ */}
-            <span className="hidden sm:inline-block text-xl font-serif font-bold text-primary">Aira Bal Vidya Mandir Inter College</span>
-            <span className="sm:hidden text-lg font-serif font-bold text-primary">A.B.V.M.I.C</span>
+          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0">
+            <div className="flex items-center justify-center w-9 sm:w-10 h-9 sm:h-10 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-md flex-shrink-0">
+              <GraduationCap className="h-4 sm:h-5 w-4 sm:w-5" />
+            </div>
+            <div className="flex flex-col leading-tight min-w-0">
+              <span className="hidden sm:inline-block text-base sm:text-lg md:text-xl font-serif font-bold text-slate-900 dark:text-white truncate">Aira Bal Vidya Mandir</span>
+              <span className="hidden sm:block text-xs text-slate-500 dark:text-slate-400">Inter College</span>
+              <span className="sm:hidden text-base font-serif font-bold text-slate-900 dark:text-white">A.B.V.M.I.C</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  pathname === item.href ? "text-primary" : "text-muted-foreground",
+                  "relative text-xs lg:text-sm font-semibold transition-all duration-200 px-2 py-1 rounded-md hover:scale-105",
+                  pathname === item.href
+                    ? "text-blue-700 bg-blue-50/60 dark:bg-blue-900/30"
+                    : "text-slate-700 dark:text-slate-300 hover:text-blue-600"
                 )}
               >
-                {item.name}
+                <span className="pointer-events-none">{item.name}</span>
+                <span
+                  aria-hidden
+                  className={cn(
+                    "absolute left-0 right-0 -bottom-2 h-0.5 rounded-full transition-all duration-300",
+                    pathname === item.href ? "bg-gradient-to-r from-blue-600 to-indigo-600 h-1" : "bg-transparent"
+                  )}
+                />
               </Link>
             ))}
           </nav>
 
           {/* Right side actions */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="hidden md:inline-flex"
+              className="hidden md:inline-flex bg-transparent hover:bg-blue-50/40 h-9 w-9"
+              aria-label="Toggle theme"
             >
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
+              <Sun className="h-3.5 w-3.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-3.5 w-3.5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             </Button>
 
-            <Button asChild className="hidden md:inline-flex">
-              <Link href="/admissions">Apply Now</Link>
+            <Button asChild className="hidden md:inline-flex bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:scale-105 transition-transform">
+              <Link href="/admissions" className="px-4 py-2">Apply Now</Link>
             </Button>
 
             {/* Mobile menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-5 w-5" />
+                <Button variant="ghost" size="icon" className="md:hidden bg-white/30 dark:bg-slate-800/30 h-9 w-9 sm:h-10 sm:w-10">
+                  <Menu className="h-4 sm:h-5 w-4 sm:w-5 text-slate-700 dark:text-slate-200" />
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
@@ -83,15 +96,15 @@ export function Navigation() {
               >
                 <div className="flex flex-col h-full">
                   {/* SheetContent already provides a close button at top right */}
-                  <nav className="flex-1 flex flex-col gap-2 px-6 py-6 mt-8">
+                  <nav className="flex-1 flex flex-col gap-2 sm:gap-3 px-4 sm:px-6 py-4 sm:py-6 mt-6 sm:mt-8">
                     {navigation.map((item, idx) => (
                       <Link
                         key={item.name}
                         href={item.href}
                         onClick={() => setIsOpen(false)}
                         className={cn(
-                          "text-lg font-semibold rounded-xl px-4 py-3 transition-all duration-200 hover:bg-primary/10 hover:text-primary focus:bg-primary/20 focus:text-primary outline-none",
-                          pathname === item.href ? "bg-primary/10 text-primary" : "text-zinc-700 dark:text-zinc-200",
+                          "text-base sm:text-lg font-semibold rounded-xl px-3 sm:px-4 py-2 sm:py-3 transition-all duration-200 hover:bg-blue-50 hover:text-blue-700 focus:bg-blue-100 outline-none",
+                          pathname === item.href ? "bg-blue-50 text-blue-700" : "text-slate-700 dark:text-slate-200",
                           `animate-in fade-in slide-in-from-right duration-300 delay-[${idx * 60}ms]`
                         )}
                         tabIndex={0}
@@ -100,17 +113,17 @@ export function Navigation() {
                       </Link>
                     ))}
                   </nav>
-                  <div className="px-6 pb-6 pt-2 border-t flex flex-col gap-2">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t flex flex-col gap-2">
                     <Button
                       variant="ghost"
                       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                      className="w-full justify-start"
+                      className="w-full justify-start text-sm sm:text-base"
                     >
                       <Sun className="h-4 w-4 mr-2 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                       <Moon className="absolute h-4 w-4 ml-2 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                       Toggle theme
                     </Button>
-                    <Button asChild className="w-full mt-1">
+                    <Button asChild className="w-full mt-1 text-sm sm:text-base">
                       <Link href="/admissions" onClick={() => setIsOpen(false)}>
                         Apply Now
                       </Link>

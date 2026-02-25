@@ -5,20 +5,26 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react"
 
 export function ContactHeroSection() {
   return (
-  <section className="relative pt-4 pb-16 sm:pt-6 sm:pb-20 bg-gradient-to-br from-primary/5 to-accent/5">
-  <div className="container mx-auto px-2 sm:px-4">
+    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+      {/* Decorative blobs */}
+      <div className="pointer-events-none absolute -left-24 -top-16 w-80 h-80 rounded-full bg-gradient-to-br from-blue-200/30 to-indigo-200/20 blur-3xl opacity-60"></div>
+      <div className="pointer-events-none absolute -right-24 -bottom-16 w-72 h-72 rounded-full bg-gradient-to-br from-indigo-200/20 to-blue-200/10 blur-2xl opacity-50"></div>
+
+      <div className="container mx-auto px-2 sm:px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <div className="flex flex-col items-center justify-center mb-6 gap-2 sm:flex-row">
-            <Mail className="h-10 w-10 sm:h-12 sm:w-12 text-accent mb-2 sm:mb-0 sm:mr-4" />
-            <h1 className="text-3xl font-extrabold font-sans tracking-tight sm:text-4xl md:text-6xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent drop-shadow-lg">
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-center mb-6">
+            <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Mail className="w-7 h-7 text-blue-600" />
+            </div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
               Contact Us
             </h1>
-          </div>
+          </div> 
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed font-[500] font-sans max-w-2xl mx-auto">
             We're here to answer your questions and help you learn more about the Aira Bal Vidya Mandir Inter College experience. Reach out to us anytime - we'd love to hear from you.
           </p>
@@ -55,16 +61,16 @@ export function ContactHeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                className="rounded-2xl shadow-lg bg-white/80 dark:bg-background/80 p-6 flex flex-col items-center text-center border border-accent/10"
+                className="rounded-2xl p-6 bg-white shadow-md hover:shadow-2xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center text-center"
               >
-                <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-3">
-                  <item.icon className="h-7 w-7 text-accent" />
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mb-3">
+                  <item.icon className="h-7 w-7 text-blue-600" />
                 </div>
-                <h3 className="font-serif font-semibold text-lg sm:text-xl mb-1 text-primary">{item.title}</h3>
-                <p className="text-muted-foreground text-sm sm:text-base font-sans">{item.info}</p>
-                <p className="text-xs text-muted-foreground">{item.subInfo}</p>
+                <h3 className="font-serif font-semibold text-lg sm:text-xl mb-1 text-slate-900">{item.title}</h3>
+                <p className="text-slate-600 text-sm sm:text-base font-sans">{item.info}</p>
+                <p className="text-xs text-slate-600">{item.subInfo}</p>
               </motion.div>
-            ))}
+            ))} 
           </div>
         </motion.div>
       </div>

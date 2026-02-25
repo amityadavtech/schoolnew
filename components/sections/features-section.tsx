@@ -49,41 +49,62 @@ const features = [
 
 export function FeaturesSection() {
   return (
-  <section className="pt-8 pb-16 sm:py-18">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
+      <div className="container mx-auto max-w-7xl">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-2xl font-extrabold font-sans tracking-tight sm:text-3xl md:text-4xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-3 sm:mb-4 ">
-            Why Choose Aira Bal Vidya Mandir Inter College?
+          <div className="inline-block mb-3 sm:mb-4">
+            <span className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-100/50 dark:bg-blue-900/30 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full">
+              Our Strengths
+            </span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-gray-900 dark:text-white mb-3 sm:mb-4">
+            Why Choose Aira Bal Vidya Mandir?
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base font-medium font-sans">
-            We provide a comprehensive educational experience that nurtures academic excellence, character development, and lifelong learning.
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
+            We provide a comprehensive educational experience that nurtures academic excellence, character development, and lifelong learning through innovative programs and world-class facilities.
           </p>
         </motion.div>
 
-        <div className="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6">
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
               viewport={{ once: true }}
+              className="group"
             >
-              <Card className="rounded-2xl shadow-lg bg-white/80 dark:bg-background/80 p-5 flex flex-col items-center text-center border border-accent/10 h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-0 flex flex-col items-center">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-3">
-                    <feature.icon className="h-6 w-6 text-accent" />
+              <div className="relative h-full bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                {/* Gradient accent on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 dark:from-blue-500/10 dark:to-indigo-500/10 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+
+                {/* Icon Container */}
+                <div className="relative mb-4 sm:mb-5">
+                  <div className="w-12 sm:w-13 md:w-14 h-12 sm:h-13 md:h-14 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/40 dark:to-indigo-900/40 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-6 sm:w-7 md:w-7 h-6 sm:h-7 md:h-7 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <h3 className="font-serif font-semibold text-base sm:text-lg mb-1 text-primary">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm sm:text-base font-sans">{feature.description}</p>
-                </CardContent>
-              </Card>
+                </div>
+
+                {/* Content */}
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 font-serif">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-xs sm:text-sm">
+                  {feature.description}
+                </p>
+
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full group-hover:w-12 transition-all duration-300" />
+              </div>
             </motion.div>
           ))}
         </div>

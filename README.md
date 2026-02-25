@@ -37,13 +37,8 @@ A comprehensive, modern school website built with Next.js 14, TypeScript, and Ta
 - **Contact Forms**: Admission and contact forms with validation
 - **Navigation**: Responsive navigation with mobile menu
 
-### 🔧 Admin Dashboard
-- **Content Management**: Edit pages, announcements, and content
-- **Event Management**: Create, edit, and manage school events
-- **Gallery Management**: Upload and organize photos
-- **Faculty Management**: Add and update staff profiles
-- **Admission Management**: Review and process applications
-- **Settings**: School information and security settings
+### 🔧 Static Site Architecture
+This is a fully static website with no dynamic admin features. Content is managed through source files and rebuilt/redeployed for updates.
 
 ## Getting Started
 
@@ -70,40 +65,33 @@ This project is optimized for deployment on Vercel:
 │   ├── about/             # About page
 │   ├── academics/         # Academics page
 │   ├── admissions/        # Admissions page
-│   ├── admin/             # Admin dashboard
 │   ├── contact/           # Contact page
 │   ├── events/            # Events page
 │   ├── faculty/           # Faculty page
-│   ├── gallery/           # Gallery page
+│   ├── gallery/           # Gallery page (static images served from `public/`)
 │   └── page.tsx           # Homepage
 ├── components/            # Reusable components
-│   ├── admin/             # Admin-specific components
 │   ├── sections/          # Page sections
 │   ├── ui/                # shadcn/ui components
 │   ├── navigation.tsx     # Main navigation
 │   └── footer.tsx         # Site footer
-├── public/                # Static assets
+├── lib/                   # Utilities & data
+│   ├── gallery-store.ts   # Static gallery image data
+│   └── utils.ts
+├── public/                # Static assets (images, etc.)
 └── README.md             # This file
 \`\`\`
 
-## Content Management
+## Content Management (Static Site)
 
-### Admin Access
-Access the admin dashboard at `/admin` to manage:
-- **Content**: Edit page content and announcements
-- **Events**: Create and manage school events
-- **Gallery**: Upload and organize photos
-- **Faculty**: Manage staff profiles
-- **Admissions**: Review applications
-- **Settings**: Update school information
+This is a **fully static site** with no dynamic admin features. All content is managed through:
 
-### Content Updates
-The admin system provides an intuitive interface for non-technical users to:
-- Update text content across all pages
-- Add new events to the calendar
-- Upload photos to the gallery
-- Manage faculty information
-- Process admission applications
+1. **Page Components** (`app/` directory) - Edit React/TSX files to update page structure
+2. **Gallery Images** (`lib/gallery-store.ts`) - Update the image array to add/remove gallery photos
+3. **Static Assets** (`public/` directory) - Replace image files here
+4. **Styling** (`app/globals.css`, tailwind config) - Modify colors and design tokens
+
+All changes require a rebuild and redeploy (no real-time admin dashboard).
 
 ## Customization
 
@@ -112,15 +100,16 @@ The admin system provides an intuitive interface for non-technical users to:
 - Replace logo and images in the `public/` directory
 - Modify school information in component files
 
-### Content
-- Edit text content through the admin dashboard
-- Update contact information and school details
-- Customize form fields and validation rules
+### Content Updates
+- Edit page content directly in component files
+- Update gallery images in `lib/gallery-store.ts`
+- Replace static assets in `public/` directory
+- Update contact information and school details in relevant components
 
 ### Features
 - Add new page sections by creating components
-- Extend the admin dashboard with additional features
-- Integrate with external services (email, CMS, etc.)
+- Modify styling through Tailwind CSS and globals.css
+- Integrate with external services (email, analytics, etc.)
 
 ## Performance
 

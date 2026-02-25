@@ -1,8 +1,3 @@
-"use client"
-
-import { create } from "zustand"
-import { persist } from "zustand/middleware"
-
 export interface GalleryImage {
   id: string
   src: string
@@ -13,16 +8,8 @@ export interface GalleryImage {
   description?: string
 }
 
-interface GalleryStore {
-  images: GalleryImage[]
-  addImages: (images: GalleryImage[]) => void
-  updateImage: (id: string, updates: Partial<GalleryImage>) => void
-  deleteImage: (id: string) => void
-  getImagesByCategory: (category: string) => GalleryImage[]
-}
-
-// Initial gallery images
-const initialImages: GalleryImage[] = [
+// Static, site-hosted gallery images — used for a fully static site.
+export const galleryImages: GalleryImage[] = [
   {
     id: "1",
     src: "/modern-library-study.png",
@@ -131,31 +118,18 @@ const initialImages: GalleryImage[] = [
     alt: "Community service",
     description: "Students giving back to the local community",
   },
+  {
+    id: "13",
+    src: "/amit.png",
+    title: "My name is Amit",
+    category: "Amit",
+    uploadDate: "2024-03-04",
+    alt: "Commddunity service",
+    description: "Students giving back to the local community",
+  },
 ]
 
-export const useGalleryStore = create<GalleryStore>()(
-  persist(
-    (set, get) => ({
-      images: initialImages,
-      addImages: (newImages) =>
-        set((state) => ({
-          images: [...newImages, ...state.images],
-        })),
-      updateImage: (id, updates) =>
-        set((state) => ({
-          images: state.images.map((img) => (img.id === id ? { ...img, ...updates } : img)),
-        })),
-      deleteImage: (id) =>
-        set((state) => ({
-          images: state.images.filter((img) => img.id !== id),
-        })),
-      getImagesByCategory: (category) => {
-        const { images } = get()
-        return category === "All" ? images : images.filter((img) => img.category === category)
-      },
-    }),
-    {
-      name: "gallery-storage",
-    },
-  ),
-)
+// Minimal hook matching previous usage shape but returning static data.
+export function useGalleryImages() {
+  return { images: galleryImages }
+}

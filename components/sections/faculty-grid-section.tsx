@@ -136,7 +136,11 @@ export function FacultyGridSection() {
       : facultyMembers.filter((member) => member.department === selectedDepartment)
 
   return (
-    <section className="py-16 bg-muted/30">
+    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+      {/* Decorative blobs */}
+      <div className="pointer-events-none absolute -left-24 -top-16 w-80 h-80 rounded-full bg-gradient-to-br from-blue-200/30 to-indigo-200/20 blur-3xl opacity-60"></div>
+      <div className="pointer-events-none absolute -right-24 -bottom-16 w-72 h-72 rounded-full bg-gradient-to-br from-indigo-200/20 to-blue-200/10 blur-2xl opacity-50"></div>
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -145,8 +149,8 @@ export function FacultyGridSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Meet Our Team</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-4">Meet Our Team</h2>
+          <p className="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Get to know the dedicated professionals who make learning at Aira Bal Vidya Mandir Inter College an exceptional experience.
             Each faculty member brings unique expertise and passion to their field.
           </p>
@@ -166,7 +170,7 @@ export function FacultyGridSection() {
               variant={selectedDepartment === department ? "default" : "outline"}
               size="sm"
               onClick={() => setSelectedDepartment(department)}
-              className="rounded-full"
+              className={`rounded-full ${selectedDepartment === department ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md' : ''}`}
             >
               {department}
             </Button>
@@ -184,29 +188,29 @@ export function FacultyGridSection() {
               viewport={{ once: true }}
             >
               <Card
-                className="h-full hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                className="h-full rounded-2xl p-6 bg-white shadow-md hover:shadow-2xl transition-shadow duration-300 border border-gray-100 cursor-pointer"
                 onClick={() => setSelectedFaculty(member)}
               >
                 <CardContent className="p-6">
                   <div className="text-center">
-                    <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-muted overflow-hidden">
+                    <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 overflow-hidden shadow-inner">
                       <img
                         src={member.image || "/placeholder.svg"}
                         alt={member.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="font-serif font-bold text-lg mb-1">{member.name}</h3>
-                    <p className="text-accent font-medium text-sm mb-2">{member.title}</p>
-                    <Badge variant="secondary" className="mb-3">
+                    <h3 className="font-serif font-bold text-lg mb-1 text-slate-900">{member.name}</h3>
+                    <p className="text-slate-600 font-medium text-sm mb-2">{member.title}</p>
+                    <Badge variant="secondary" className="mb-3 bg-blue-50 text-blue-700">
                       {member.department}
                     </Badge>
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{member.bio}</p>
+                    <p className="text-slate-600 text-sm mb-4 line-clamp-3">{member.bio}</p>
                     <div className="flex justify-center gap-2">
-                      <Button variant="outline" size="sm" className="bg-transparent">
+                      <Button variant="outline" size="sm" className="bg-transparent text-blue-600">
                         <Mail className="h-4 w-4" />
                       </Button>
-                      <Button variant="outline" size="sm" className="bg-transparent">
+                      <Button variant="outline" size="sm" className="bg-transparent text-blue-600">
                         <Phone className="h-4 w-4" />
                       </Button>
                     </div>
@@ -246,34 +250,34 @@ export function FacultyGridSection() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl font-serif font-bold text-primary mb-2">{selectedFaculty.name}</h3>
-                      <p className="text-accent font-medium mb-2">{selectedFaculty.title}</p>
-                      <Badge variant="secondary" className="mb-4">
+                      <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2">{selectedFaculty.name}</h3>
+                      <p className="text-slate-600 font-medium mb-2">{selectedFaculty.title}</p>
+                      <Badge variant="secondary" className="mb-4 bg-blue-50 text-blue-700">
                         {selectedFaculty.department}
                       </Badge>
 
                       <div className="space-y-4">
                         <div>
                           <div className="flex items-center mb-2">
-                            <BookOpen className="h-4 w-4 text-accent mr-2" />
+                            <BookOpen className="h-4 w-4 text-blue-600 mr-2" />
                             <span className="font-semibold">Education</span>
                           </div>
-                          <p className="text-muted-foreground text-sm">{selectedFaculty.education}</p>
+                          <p className="text-slate-600 text-sm">{selectedFaculty.education}</p>
                         </div>
 
                         <div>
                           <div className="flex items-center mb-2">
-                            <Award className="h-4 w-4 text-accent mr-2" />
+                            <Award className="h-4 w-4 text-blue-600 mr-2" />
                             <span className="font-semibold">Experience</span>
                           </div>
-                          <p className="text-muted-foreground text-sm">{selectedFaculty.experience}</p>
+                          <p className="text-slate-600 text-sm">{selectedFaculty.experience}</p>
                         </div>
 
                         <div>
                           <h4 className="font-semibold mb-2">Specialties</h4>
                           <div className="flex flex-wrap gap-2">
                             {selectedFaculty.specialties.map((specialty, index) => (
-                              <Badge key={index} variant="outline">
+                              <Badge key={index} variant="outline" className="border-blue-100">
                                 {specialty}
                               </Badge>
                             ))}
@@ -282,15 +286,15 @@ export function FacultyGridSection() {
 
                         <div>
                           <h4 className="font-semibold mb-2">About</h4>
-                          <p className="text-muted-foreground text-sm">{selectedFaculty.bio}</p>
+                          <p className="text-slate-600 text-sm">{selectedFaculty.bio}</p>
                         </div>
 
                         <div className="flex gap-4 pt-4">
-                          <Button variant="outline" size="sm" className="bg-transparent">
+                          <Button variant="outline" size="sm" className="bg-transparent text-blue-600">
                             <Mail className="h-4 w-4 mr-2" />
                             {selectedFaculty.email}
                           </Button>
-                          <Button variant="outline" size="sm" className="bg-transparent">
+                          <Button variant="outline" size="sm" className="bg-transparent text-blue-600">
                             <Phone className="h-4 w-4 mr-2" />
                             {selectedFaculty.phone}
                           </Button>

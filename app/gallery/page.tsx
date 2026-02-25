@@ -15,7 +15,7 @@ export default function GalleryPage() {
       <Navigation />
       <main>
         <GalleryHeroSection />
-  <PhotoGallerySection showAll />
+        <PhotoGallerySection showAll />
       </main>
       <Footer />
     </div>
