@@ -11,33 +11,29 @@ const activities = [
   {
     category: "Arts & Culture",
     icon: Palette,
-    activities: ["Drama Club", "Art Society", "Photography Club", "Creative Writing", "Film Production"],
+    activities: ["Drama Club", "Art Society", "Creative Writing",],
   },
   {
-    category: "Music & Performance",
+    category: "Dance & Performance",
     icon: Music,
-    activities: ["School Orchestra", "Jazz Band", "Choir", "Musical Theater", "Individual Lessons"],
+    activities: ["School Events"],
   },
   {
     category: "Sports & Athletics",
     icon: Trophy,
     activities: ["Basketball", "Soccer", "Tennis", "Swimming", "Track & Field", "Cross Country"],
   },
-  {
-    category: "Academic Clubs",
-    icon: BookOpen,
-    activities: ["Debate Team", "Model UN", "Science Olympiad", "Math Club", "National Honor Society"],
-  },
+  // {
+  //   category: "Academic Clubs",
+  //   icon: BookOpen,
+  //   activities: ["Debate Team", "Model UN", "Science Olympiad", "Math Club", "National Honor Society"],
+  // },
   {
     category: "Leadership & Service",
     icon: Users,
     activities: ["Student Government", "Peer Mentoring", "Community Service", "Environmental Club", "Volunteer Corps"],
   },
-  {
-    category: "Technology & Innovation",
-    icon: Zap,
-    activities: ["Robotics Team", "Coding Club", "Tech Support", "Digital Media", "Innovation Lab"],
-  },
+ 
 ]
 
 export function ExtracurricularSection() {
@@ -105,32 +101,6 @@ export function ExtracurricularSection() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
-        >
-          <Card className="rounded-3xl border-0 shadow-lg overflow-hidden">
-            <div className="p-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-              <Heart className="h-8 w-8 mx-auto mb-4" />
-              <h3 className="text-2xl font-serif font-bold mb-4">Join Our Community</h3>
-              <p className="max-w-2xl mx-auto text-sm">
-                With over 40 clubs and activities, every student can find something they love. Our faculty advisors
-                provide mentorship and guidance to support growth and leadership.
-              </p>
-              <div className="mt-6 flex items-center justify-center gap-4">
-                <Button asChild className="bg-white text-blue-700">
-                  <Link href="/contact">Get Involved</Link>
-                </Button>
-                <Button asChild variant="ghost" className="text-white border border-white/20">
-                  <Link href="/clubs">See All Clubs</Link>
-                </Button>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
       </div>
     </section>
   )

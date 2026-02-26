@@ -26,19 +26,9 @@ const features = [
     description: "International programs and cultural exchange opportunities for well-rounded education.",
   },
   {
-    icon: Microscope,
-    title: "STEM Programs",
-    description: "State-of-the-art laboratories and innovative science, technology, and math curricula.",
-  },
-  {
     icon: Palette,
     title: "Arts & Creativity",
     description: "Comprehensive arts programs including visual arts, drama, and creative writing.",
-  },
-  {
-    icon: Music,
-    title: "Music & Performance",
-    description: "Award-winning music programs with orchestra, band, and individual instruction.",
   },
   {
     icon: Trophy,

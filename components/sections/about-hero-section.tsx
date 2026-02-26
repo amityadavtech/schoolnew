@@ -61,9 +61,8 @@ export function AboutHeroSection() {
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Button asChild className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:scale-[1.02] text-sm sm:text-base">
-              <Link href="/history">Learn Our History</Link>
+              <Link href="/contact" className="text-xs sm:text-sm font-medium text-blue-700 hover:underline">Contact Us</Link>
             </Button>
-            <Link href="/contact" className="text-xs sm:text-sm font-medium text-blue-700 hover:underline">Contact Us</Link>
           </div>
         </motion.div>
       </div>

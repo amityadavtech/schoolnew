@@ -50,7 +50,7 @@ export function MapSection() {
               <div className="relative p-4 sm:p-6">
                 <div className="relative h-72 sm:h-96 rounded-xl overflow-hidden shadow-inner">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.123456789!2d-74.0059413!3d40.7127753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjAiTiA3NMKwMDAnMjEuNCJX!5e0!3m2!1sen!2sus!4v1234567890123"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.4789546255524!2d81.0799468!3d27.856554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3998c3636f29d155%3A0x660fad13cc92e6cf!2sAira%20Bal%20Vidya%20Mandir%20Inter%20College!5e0!3m2!1sen!2sin!4v1772120113870!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -82,16 +82,13 @@ export function MapSection() {
                   <div>
                     <h3 className="font-serif font-semibold text-lg sm:text-xl mb-1 text-gray-900 dark:text-white">Address</h3>
                     <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-4">
-                      123 Education Boulevard<br />
-                      Excellence City, EC 12345<br />
-                      United States
+                      Aira.Bal.Vidya.Mandir.
+                      <br/>Inter.College,<br/> Khamairya (Aira)<br />
+                      Lakhimpur Kheri, Uttar Pradesh<br />
+                      India
                     </p>
                   </div>
                 </div>
-                <Button variant="outline" className="w-full bg-transparent border-blue-200 text-blue-600">
-                  <Navigation className="h-4 w-4 mr-2 text-blue-600" />
-                  Get Directions
-                </Button>
               </div>
             </div>
 
@@ -124,9 +121,9 @@ export function MapSection() {
                     <h3 className="font-serif font-semibold text-lg sm:text-xl mb-1 text-gray-900 dark:text-white">Transportation</h3>
                     <ul className="text-gray-600 dark:text-gray-300 text-sm sm:text-base space-y-2">
                       <li>• School bus service available</li>
-                      <li>• Metro bus stop nearby</li>
-                      <li>• Bike racks on campus</li>
-                      <li>• Carpool coordination program</li>
+                      <li>• Over 5+ School Bus</li>
+                     
+
                     </ul>
                   </div>
                 </div>

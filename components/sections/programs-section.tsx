@@ -17,13 +17,6 @@ const specialPrograms = [
     badge: "Advanced",
   },
   {
-    title: "International Baccalaureate",
-    description: "Globally recognized program preparing students for international universities and careers.",
-    icon: Globe,
-    features: ["IB Diploma Programme", "Multilingual education", "Global perspectives", "University recognition"],
-    badge: "Global",
-  },
-  {
     title: "Advanced Mathematics Track",
     description: "Accelerated mathematics program for students showing exceptional aptitude in mathematical sciences.",
     icon: Calculator,

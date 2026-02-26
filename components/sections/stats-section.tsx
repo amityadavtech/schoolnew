@@ -7,9 +7,8 @@ import { TrendingUp, Users, Target, UserCheck, Award } from "lucide-react"
 
 const stats = [
   { number: 1200, label: "Active Students", suffix: "+", icon: Users },
-  { number: 95, label: "College Acceptance Rate", suffix: "%", icon: Target },
   { number: 75, label: "Expert Faculty Members", suffix: "+", icon: UserCheck },
-  { number: 50, label: "Awards & Recognition", suffix: "+", icon: Award },
+  { number: 20, label: "Awards & Recognition", suffix: "+", icon: Award },
 ]
 
 function AnimatedNumber({ number, suffix = "" }: { number: number; suffix?: string }) {

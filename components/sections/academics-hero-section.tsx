@@ -35,12 +35,7 @@ export function AcademicsHeroSection() {
             </div>
           </div>
 
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:scale-[1.02]">
-              <Link href="/curriculum">View Curriculum</Link>
-            </Button>
-            <Link href="/programs" className="text-sm font-medium text-blue-700 hover:underline">Explore Programs</Link>
-          </div>
+         
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
             <motion.div whileHover={{ y: -6 }} className="rounded-2xl p-6 bg-white shadow-md hover:shadow-2xl transition-shadow duration-300 border border-gray-100 text-center">

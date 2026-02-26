@@ -9,12 +9,12 @@ import { useState, useEffect } from "react"
 
 const HERO_SLIDES = [
   {
-    image: "/modern-school-campus-with-students-walking--bright.jpg",
+    image: "/School-Image/modern-school-campus-with-students-walking--bright.jpg",
     title: "Shaping Tomorrow's Leaders Today",
     subtitle: "Excellence in Education Since 1985",
   },
   {
-    image: "/school-graduation-ceremony-with-students-in-caps-a.jpg",
+    image: "/School-Image/school-graduation-ceremony-with-students-in-caps-a.jpg",
     title: "Academic Excellence & Personal Growth",
     subtitle: "Preparing Students for Success",
   },
@@ -61,11 +61,13 @@ export function HeroSection() {
   const slide = HERO_SLIDES[current]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black px-0 py-12 sm:py-0">
       <style>{`
         @media (max-width: 768px) {
           .hero-content-wrapper {
             min-height: calc(100vh - 4rem);
+            width: 100%;
+            overflow-x: hidden;
             padding: 2rem 1rem;
             display: flex;
             align-items: center;
@@ -147,6 +149,8 @@ export function HeroSection() {
         @media (max-width: 480px) {
           .hero-content-wrapper {
             padding: 1.5rem 0.75rem;
+            width: 100%;
+            overflow-x: hidden;
           }
 
           .hero-title {
@@ -202,7 +206,7 @@ export function HeroSection() {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white hero-content-wrapper">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center text-white w-full flex items-center justify-center">
         <motion.div
           key={current}
           initial={{ opacity: 0, y: 20 }}
@@ -211,21 +215,19 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto w-full"
         >
-          <Badge variant="secondary" className="mb-4 sm:mb-6 text-white bg-white/20 border border-white/30 backdrop-blur-sm text-xs sm:text-sm inline-flex">
+          <Badge variant="secondary" className="mb-5 sm:mb-6 text-white bg-white/15 border border-white/25 backdrop-blur-md text-xs sm:text-sm inline-flex px-3 py-1.5 rounded-full shadow-lg">
             <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
             <span className="truncate">{slide.subtitle}</span>
           </Badge>
 
-          <h1 className="hero-title text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-4 sm:mb-6 text-balance text-white drop-shadow-lg">
+          <h1 className="hero-title text-[2rem] leading-[1.15] sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight mb-6 sm:mb-6 text-white drop-shadow-2xl px-2 sm:px-0 max-w-3xl mx-auto">
             {slide.title}
           </h1>
-
-          <p className="hero-subtitle-text text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto text-pretty leading-relaxed drop-shadow-md px-2 sm:px-0">
-            At Aira Bal Vidya Mandir Inter College, we nurture young minds through innovative teaching methods, comprehensive development
-            programs, and a commitment to academic excellence that prepares students for a bright future.
+          <p className="hero-subtitle-text text-[1rem] sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-8 max-w-lg mx-auto leading-relaxed font-normal px-4 sm:px-0">
+            At Aira Bal Vidya Mandir Inter College, we nurture young minds through innovative teaching, holistic development programs, and a commitment to academic excellence that prepares students for a confident and successful future.
           </p>
 
-          <div className="hero-button-group flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-0 sm:px-2 w-full">
+          <div className="hero-button-group flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-10 sm:mb-12 w-full px-3 sm:px-0">
             <Button asChild size="lg" className="hero-button bg-blue-600 hover:bg-blue-700 text-white shadow-lg w-full sm:w-auto">
               <Link href="/admissions" className="flex justify-center items-center">
                 Apply for Admission
@@ -234,7 +236,7 @@ export function HeroSection() {
             </Button>
             <Button
               size="lg"
-              className="hero-button border border-white/40 text-white hover:bg-white/20 bg-white/10 backdrop-blur-sm shadow-lg w-full sm:w-auto"
+              className="hero-button border border-white/30 text-white hover:bg-white/20 bg-white/10 backdrop-blur-md shadow-xl w-full sm:w-auto min-h-[48px] rounded-xl font-medium transition-all duration-300"
             >
               <Play className="mr-2 h-5 w-5" />
               Watch Virtual Tour
@@ -246,16 +248,16 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-stats-grid grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto px-2 sm:px-0"
+            className="hero-stats-grid grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 md:gap-8 max-w-2xl mx-auto px-3 sm:px-0 mt-2"
           >
-            <div className="hero-stat-card text-center bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-lg border border-white/20">
+            <div className="hero-stat-card text-center bg-white/10 backdrop-blur-lg p-4 sm:p-4 rounded-xl border border-white/20 shadow-lg">
               <div className="flex items-center justify-center mb-2">
                 <Users className="hero-stat-icon h-5 sm:h-6 w-5 sm:w-6 mr-2 text-blue-400" />
                 <span className="hero-stat-value text-xl sm:text-2xl font-bold text-white">1,200+</span>
               </div>
               <p className="hero-stat-label text-white/80 text-xs sm:text-sm">Active Students</p>
             </div>
-            <div className="hero-stat-card text-center bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-lg border border-white/20">
+            <div className="hero-stat-card text-center bg-white/10 backdrop-blur-lg p-4 sm:p-4 rounded-xl border border-white/20 shadow-lg">
               <div className="flex items-center justify-center mb-2">
                 <BookOpen className="hero-stat-icon h-5 sm:h-6 w-5 sm:w-6 mr-2 text-blue-400" />
                 <span className="hero-stat-value text-xl sm:text-2xl font-bold text-white">95%</span>
@@ -290,11 +292,10 @@ export function HeroSection() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`slide-indicator rounded-full transition-all duration-300 ${
-                index === current
-                  ? "slide-indicator active w-6 sm:w-8 h-1.5 sm:h-2 bg-blue-500"
-                  : "slide-indicator inactive w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/40 hover:bg-white/60"
-              }`}
+              className={`slide-indicator rounded-full transition-all duration-300 ${index === current
+                ? "slide-indicator active w-6 sm:w-8 h-1.5 sm:h-2 bg-blue-500"
+                : "slide-indicator inactive w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/40 hover:bg-white/60"
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -310,21 +311,8 @@ export function HeroSection() {
         </button>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-16 sm:bottom-24 left-1/2 transform -translate-x-1/2 z-10 hidden sm:block"
-      >
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-            className="w-1 h-3 bg-white/60 rounded-full mt-2"
-          />
-        </div>
-      </motion.div>
+
+
     </section>
   )
 }

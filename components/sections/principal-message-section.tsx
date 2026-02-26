@@ -52,9 +52,9 @@ export function PrincipalMessageSection() {
                   </blockquote>
 
                   <div className="mt-6">
-                    <p className="font-serif font-semibold text-lg text-slate-900 dark:text-white">Dr. Margaret Thompson</p>
+                    <p className="font-serif font-semibold text-lg text-slate-900 dark:text-white">Mr. Israj Ali</p>
                     <p className="text-sm text-slate-600 dark:text-slate-300">Principal, Aira Bal Vidya Mandir Inter College</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Ed.D. Educational Leadership • 25+ years experience</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">• 25+ years experience</p>
                   </div>
                 </div>
               </div>
