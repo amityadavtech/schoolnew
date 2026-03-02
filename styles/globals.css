@@ -201,6 +201,11 @@ html {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* nprogress custom styles */
+#nprogress { pointer-events: none; }
+#nprogress .bar { background: var(--primary); height: 3px; }
+#nprogress .peg { box-shadow: 0 0 10px var(--primary), 0 0 5px var(--primary); }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

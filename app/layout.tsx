@@ -7,6 +7,7 @@ import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ScrollToTopButton } from "@/components/ui/scroll-to-top-button"
 import { Suspense } from "react"
+import LoadingBar from "@/components/loading-bar"
 
 export const metadata: Metadata = {
   title: "Aira Bal Vidya Mandir Inter College - Excellence in Education",
@@ -34,6 +35,8 @@ export default function RootLayout({
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <Suspense fallback={null}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+            {/* global loading bar when navigation changes */}
+            <LoadingBar />
             {children}
           </ThemeProvider>
         </Suspense>

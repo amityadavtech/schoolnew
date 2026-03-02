@@ -73,12 +73,13 @@ export function FeaturesSection() {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="relative h-full bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                {/* Gradient accent on hover */}
+              <div className="relative h-full bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center sm:text-left">
+
+                {/* Gradient accent */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 dark:from-blue-500/10 dark:to-indigo-500/10 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
 
                 {/* Icon Container */}
-                <div className="relative mb-4 sm:mb-5">
+                <div className="relative mb-4 sm:mb-5 flex justify-center sm:justify-start">
                   <div className="w-12 sm:w-13 md:w-14 h-12 sm:h-13 md:h-14 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/40 dark:to-indigo-900/40 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <feature.icon className="w-6 sm:w-7 md:w-7 h-6 sm:h-7 md:h-7 text-blue-600 dark:text-blue-400" />
                   </div>
@@ -88,12 +89,10 @@ export function FeaturesSection() {
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 font-serif">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-xs sm:text-sm">
+
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-xs sm:text-sm mx-auto sm:mx-0 max-w-xs sm:max-w-none">
                   {feature.description}
                 </p>
-
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full group-hover:w-12 transition-all duration-300" />
               </div>
             </motion.div>
           ))}
