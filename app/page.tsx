@@ -1,13 +1,9 @@
 "use client"
 
-import { Suspense, lazy, useState } from "react"
+import { useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-
-// lazy-load the HeroSection to show a spinner while it mounts
-const HeroSection = lazy(() =>
-  import("@/components/sections/hero-section").then((mod) => ({ default: mod.HeroSection }))
-)
+import { HeroSection } from "@/components/sections/hero-section"
 import { FeaturesSection } from "@/components/sections/features-section"
 import { StatsSection } from "@/components/sections/stats-section"
 import { TestimonialsSection } from "@/components/sections/testimonials-section"
@@ -39,16 +35,7 @@ export default function HomePage() {
           title={popupData.title}
           description={popupData.description}
         />
-        <Suspense
-          fallback={
-            <div className="flex items-center justify-center py-12">
-              {/* spinner component */}
-              <div className="w-16 h-16 rounded-full animate-spin" style={{ border: "4px solid var(--muted)", borderTopColor: "var(--primary)" }} />
-            </div>
-          }
-        >
-          <HeroSection />
-        </Suspense>
+        <HeroSection />
         <FeaturesSection />
         <StatsSection />
         <PhotoGallerySection />
