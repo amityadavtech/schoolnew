@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { useGalleryImages } from "@/lib/gallery-store"
 import Link from "next/link"
 
-const galleryCategories = ["All", "Campus Life", "Events", "Sports", "Arts", "Academics", "Graduation","Amit"]
+const galleryCategories = ["All", "Campus Life", "Events", "Sports", "Arts","School Tour","Graduation","Amit"]
 
 
 

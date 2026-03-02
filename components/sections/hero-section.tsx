@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Play, Award, Users, BookOpen, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
@@ -64,6 +65,11 @@ export function HeroSection() {
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black px-0 py-12 sm:py-0">
       <style>{`
         @media (max-width: 768px) {
+          .hero-bg-image {
+            object-fit: cover;
+            object-position: center 20%;
+          }
+
           .hero-content-wrapper {
             min-height: calc(100vh - 4rem);
             width: 100%;
@@ -146,7 +152,19 @@ export function HeroSection() {
           }
         }
 
+        @media (max-width: 640px) {
+          .hero-bg-image {
+            object-fit: cover;
+            object-position: center 30%;
+          }
+        }
+
         @media (max-width: 480px) {
+          .hero-bg-image {
+            object-fit: cover;
+            object-position: center 40%;
+          }
+
           .hero-content-wrapper {
             padding: 1.5rem 0.75rem;
             width: 100%;
@@ -191,12 +209,14 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 overflow-hidden"
         >
           <img
             src={slide.image}
             alt={slide.title}
-            className="w-full h-full object-cover"
+            className="hero-bg-image w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
           />
           {/* Vignette Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
