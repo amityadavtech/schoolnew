@@ -255,13 +255,19 @@ export function HeroSection() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button
-              size="lg"
-              className="hero-button border border-white/30 text-white hover:bg-white/20 bg-white/10 backdrop-blur-md shadow-xl w-full sm:w-auto min-h-[48px] rounded-xl font-medium transition-all duration-300"
+            <a
+              href="https://youtu.be/neB7KNsOG2Y?si=yCJyHFPwONJxspuL"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Play className="mr-2 h-5 w-5" />
-              Watch Virtual Tour
-            </Button>
+              <Button
+                size="lg"
+                className="hero-button border border-white/30 text-white hover:bg-white/20 bg-white/10 backdrop-blur-md shadow-xl w-full sm:w-auto min-h-[48px] rounded-xl font-medium transition-all duration-300"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                Watch Virtual Tour
+              </Button>
+            </a>
           </div>
 
           {/* Quick Stats */}
