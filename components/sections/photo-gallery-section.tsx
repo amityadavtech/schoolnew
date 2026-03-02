@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { X, ChevronLeft, ChevronRight, Download, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { LazyImage } from "@/components/ui/lazy-image"
 import { useGalleryImages } from "@/lib/gallery-store"
 import Link from "next/link"
 
@@ -90,10 +91,11 @@ export function PhotoGallerySection({ showAll = false }: { showAll?: boolean }) 
                 onClick={() => openLightbox(image)}
               >
                 <div className="relative overflow-hidden rounded-2xl bg-white/5 aspect-[4/3] shadow-sm hover:shadow-lg transition-shadow duration-300">
-                  <img
+                  <LazyImage
                     src={image.src || "/placeholder.svg"}
                     alt={image.alt || image.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    wrapperClassName="w-full h-full"
+                    imgClassName="object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -142,21 +144,22 @@ export function PhotoGallerySection({ showAll = false }: { showAll?: boolean }) 
                 {/* Image Panel */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-white to-slate-50 dark:from-slate-800 p-4 border border-gray-100">
                   <div className="flex items-center justify-center bg-black rounded-xl p-6">
-                    <img
+                    <LazyImage
                       src={selectedImage.src || "/placeholder.svg"}
                       alt={selectedImage.alt || selectedImage.title}
-                      className="w-full h-auto max-h-[68vh] object-contain rounded-lg"
+                      wrapperClassName="w-full h-auto max-h-[68vh]"
+                      imgClassName="object-contain rounded-lg"
                     />
                   </div>
 
                   {/* Controls */}
                   <div className="absolute left-4 top-1/2 -translate-y-1/2">
-                    <button onClick={() => navigateImage("prev")} className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20">
+                    <button onClick={() => navigateImage("prev")} className="p-2 rounded-full bg-white/10 text-blue-600 hover:bg-white/20">
                       <ChevronLeft className="h-6 w-6" />
                     </button>
                   </div>
                   <div className="absolute right-4 top-1/2 -translate-y-1/2">
-                    <button onClick={() => navigateImage("next")} className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20">
+                    <button onClick={() => navigateImage("next")} className="p-2 rounded-full bg-white/10 text-blue-600 hover:bg-white/20">
                       <ChevronRight className="h-6 w-6" />
                     </button>
                   </div>
@@ -173,15 +176,6 @@ export function PhotoGallerySection({ showAll = false }: { showAll?: boolean }) 
                             <span className="text-sm text-gray-500">{currentImageIndex + 1} of {filteredImages.length}</span>
                           )}
                         </div>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <a href={selectedImage.src} download className="inline-flex items-center px-3 py-2 bg-blue-600 text-white rounded-lg shadow hover:brightness-105">
-                          <Download className="w-4 h-4 mr-2" /> Download
-                        </a>
-                        <button className="inline-flex items-center px-3 py-2 border border-gray-200 rounded-lg shadow hover:shadow-md">
-                          <Share2 className="w-4 h-4 mr-2" /> Share
-                        </button>
                       </div>
                     </div>
                   </div>

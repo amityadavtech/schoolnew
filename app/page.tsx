@@ -24,7 +24,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen max-w-screen overflow-x-hidden">
+    <div className="min-h-screen max-w-screen">
       <Navigation />
       <main>
         {/* Modern Popup Modal - Static data from lib/popup-data.ts */}

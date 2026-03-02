@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
+import { LazyImage } from "@/components/ui/lazy-image"
 
 interface ModernPopupProps {
   isOpen: boolean
@@ -74,10 +75,11 @@ export function ModernPopup({
               {/* IMAGE (NEVER FULL HEIGHT) */}
               {image && (
                 <div className="relative w-full h-36 sm:h-56 overflow-hidden">
-                  <img
+                  <LazyImage
                     src={image}
                     alt={title}
-                    className="w-full h-full object-cover"
+                    wrapperClassName="w-full h-full"
+                    imgClassName="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>

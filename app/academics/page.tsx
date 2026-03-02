@@ -18,7 +18,7 @@ export default function AcademicsPage() {
       <main>
         <AcademicsHeroSection />
         <CurriculumSection />
-        <ProgramsSection />
+        {/* <ProgramsSection /> */}
         <ExtracurricularSection />
       </main>
       <Footer />

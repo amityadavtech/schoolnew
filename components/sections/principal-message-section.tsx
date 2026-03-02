@@ -27,7 +27,7 @@ export function PrincipalMessageSection() {
                 <div className="flex-shrink-0">
                   <div className="w-36 h-36 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
                     <Avatar className="w-full h-full">
-                      <AvatarImage src="/principal-professional-portrait.png" alt="Dr. Margaret Thompson" />
+                      <AvatarImage src="/amit.png" alt="Dr. Margaret Thompson" />
                       <AvatarFallback className="text-2xl">MT</AvatarFallback>
                     </Avatar>
                   </div>

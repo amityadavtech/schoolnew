@@ -7,7 +7,7 @@ import { MapPin, Navigation, Car, Bus } from "lucide-react"
 
 export function MapSection() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
+    <section className="py-20 px-4 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 overflow-x-hidden">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <motion.div

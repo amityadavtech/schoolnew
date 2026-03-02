@@ -26,13 +26,27 @@ export function AdmissionsHeroSection() {
             Begin your journey at <span className="font-semibold text-blue-700 dark:text-blue-400">Aira Bal Vidya Mandir Inter College</span>, where academic excellence meets personal growth. We're excited to welcome passionate learners who are ready to make their mark on the world.
           </p>
 
-          <div className="mt-8 flex items-center justify-center gap-4 mb-10">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:scale-[1.02] text-base sm:text-lg px-8 rounded-full font-bold">
-              Apply Now
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 px-4 sm:px-0">
+
+            <Button asChild
+              size="lg"
+              className="
+      w-full sm:w-auto
+      bg-gradient-to-r from-blue-600 to-indigo-600
+      text-white
+      shadow-md
+      hover:scale-[1.02]
+      text-base sm:text-lg
+      px-6 sm:px-8
+      py-3
+      rounded-full
+      font-bold
+    "
+            >
+              <a href="#application">Apply Now</a>
             </Button>
-            <Button variant="outline" size="lg" className="text-base sm:text-lg px-8 rounded-full bg-transparent font-bold shadow-none border border-gray-100 text-blue-700">
-              Schedule Tour
-            </Button>
+
+
           </div>
 
           <div className="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-6">

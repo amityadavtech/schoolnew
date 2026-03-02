@@ -7,7 +7,7 @@ import { GraduationCap, Users, Award, Globe } from "lucide-react"
 const stats = [
   {
     icon: Users,
-    number: "45",
+    number: "45+",
     label: "Faculty Members",
     description: "Dedicated educators committed to excellence",
   },
@@ -15,20 +15,20 @@ const stats = [
     icon: GraduationCap,
     number: "98%",
     label: "Advanced Degrees",
-    description: "Master's and Doctoral level qualifications",
+    description: "Master's qualifications",
   },
-  {
-    icon: Award,
-    number: "15+",
-    label: "Years Experience",
-    description: "Average teaching experience per faculty member",
-  },
-  {
-    icon: Globe,
-    number: "12",
-    label: "Countries",
-    description: "International backgrounds and perspectives",
-  },
+  // {
+  //   icon: Award,
+  //   number: "15+",
+  //   label: "Years Experience",
+  //   description: "Average teaching experience per faculty member",
+  // },
+  // {
+  //   icon: Globe,
+  //   number: "12",
+  //   label: "Countries",
+  //   description: "International backgrounds and perspectives",
+  // },
 ]
 
 export function FacultyStatsSection() {

@@ -2,11 +2,30 @@ import { cn } from '@/lib/utils'
 
 function Skeleton({ className, ...props }: React.ComponentProps<'div'>) {
   return (
-    <div
-      data-slot="skeleton"
-      className={cn('bg-accent animate-pulse rounded-md', className)}
-      {...props}
-    />
+    <>
+      <style>{`
+        @keyframes shimmer {
+          0% {
+            background-color: #E5E5E5;
+          }
+          50% {
+            background-color: #F5F5F5;
+          }
+          100% {
+            background-color: #E5E5E5;
+          }
+        }
+        
+        .skeleton-shimmer {
+          animation: shimmer 2s infinite;
+        }
+      `}</style>
+      <div
+        data-slot="skeleton"
+        className={cn('skeleton-shimmer rounded-md', className)}
+        {...props}
+      />
+    </>
   )
 }
 

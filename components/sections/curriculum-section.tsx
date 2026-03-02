@@ -129,9 +129,6 @@ export function CurriculumSection() {
                       </div>
                       <p className="text-white/90 leading-relaxed">{level.description}</p>
                       <div className="mt-6">
-                        <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:scale-[1.02] px-4 py-2 rounded-lg">
-                          <Link href={`#${level.id}`}>Learn more</Link>
-                        </Button>
                       </div>
                     </div>
 

@@ -104,46 +104,141 @@ export function RequirementsSection() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="w-full flex justify-center px-4 sm:px-6 mt-16"
         >
-          <Card className="relative overflow-hidden rounded-3xl border border-gray-100 bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-2xl backdrop-blur-xl">
-            <CardContent className="p-8 sm:p-10 flex flex-col items-center text-center space-y-6">
+          <div className="relative w-full max-w-3xl">
 
-              {/* Icon Circle */}
-              <div className="w-16 h-16 bg-white/15 rounded-2xl flex items-center justify-center shadow-inner shadow-black/30 backdrop-blur-md">
-                <GraduationCap className="h-9 w-9 text-white drop-shadow-md" />
+            {/* Glow background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-indigo-500/30 to-blue-500/30 blur-3xl rounded-[2rem] opacity-60"></div>
+
+            {/* Main Card */}
+            <div className="
+      relative
+      bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700
+      rounded-2xl sm:rounded-3xl
+      shadow-xl sm:shadow-2xl
+      border border-white/10
+      px-6 py-8 sm:px-10 sm:py-12
+      text-center
+      overflow-hidden
+    ">
+
+              {/* Top Accent Line */}
+              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-white/70 to-transparent"></div>
+
+              {/* Icon */}
+              <div className="
+        mx-auto mb-5 sm:mb-6
+        w-14 h-14 sm:w-16 sm:h-16
+        rounded-xl sm:rounded-2xl
+        bg-white/10
+        backdrop-blur-md
+        border border-white/20
+        flex items-center justify-center
+        shadow-lg
+      ">
+                <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
 
               {/* Heading */}
-              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white drop-shadow-lg">
-                Need Help?
+              <h3 className="
+        text-xl sm:text-3xl
+        font-bold
+        text-white
+        mb-3
+        tracking-tight
+      ">
+                Need Help With Admissions?
               </h3>
 
               {/* Description */}
-              <p className="text-white/90 leading-relaxed max-w-xl mx-auto text-sm sm:text-base font-medium">
-                Our admissions team is here to guide you through every step of the process. <br className="hidden sm:block" />
-                <span className="font-semibold text-white">Don't hesitate to reach out if you have questions or need assistance with your application.</span>
+              <p className="
+        text-white/85
+        text-sm sm:text-base
+        leading-relaxed
+        max-w-xl
+        mx-auto
+        mb-6 sm:mb-8
+      ">
+                Our admissions team is ready to assist you at every step of the application process.
+                Get in touch anytime for guidance, support, or answers to your questions.
               </p>
 
-              {/* Contact Options */}
-              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 w-full">
-                <div className="px-6 py-3 rounded-xl bg-white/90 text-blue-700 font-semibold text-base shadow-md transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-lg cursor-pointer">
-                  📧 admissions@pinnacleacademy.edu
-                </div>
-                <div className="px-6 py-3 rounded-xl bg-white/90 text-blue-700 font-semibold text-base shadow-md transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-lg cursor-pointer">
-                  📞 (555) 123-4567
-                </div>
+              {/* Contact Buttons */}
+              <div className="
+        flex flex-col sm:flex-row
+        gap-3 sm:gap-4
+        justify-center
+        items-center
+      ">
+
+                {/* Email Button */}
+                <a
+                  href="mailto:admissions@school.edu"
+                  className="
+            w-full sm:w-auto
+            flex items-center justify-center gap-2
+            px-5 py-3
+            rounded-lg sm:rounded-xl
+            bg-white
+            text-blue-700
+            font-semibold
+            text-sm sm:text-base
+            shadow-md
+            hover:shadow-xl
+            hover:scale-[1.04]
+            active:scale-[0.97]
+            transition-all duration-300
+          "
+                >
+                  📧 Email Admissions
+                </a>
+
+                {/* Call Button */}
+                <a
+                  href="tel:+911234567890"
+                  className="
+            w-full sm:w-auto
+            flex items-center justify-center gap-2
+            px-5 py-3
+            rounded-lg sm:rounded-xl
+            bg-transparent
+            border border-white/30
+            text-white
+            font-semibold
+            text-sm sm:text-base
+            backdrop-blur-md
+            hover:bg-white/10
+            hover:scale-[1.04]
+            active:scale-[0.97]
+            transition-all duration-300
+          "
+                >
+                  📞 Call Now
+                </a>
+
               </div>
 
-              {/* Subtle bottom glow effect */}
-              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-indigo-400/30 blur-3xl rounded-full pointer-events-none"></div>
-            </CardContent>
-          </Card>
+              {/* Bottom Glow */}
+              <div className="
+        absolute
+        bottom-[-40px]
+        left-1/2
+        -translate-x-1/2
+        w-[70%]
+        h-[80px]
+        bg-blue-400/40
+        blur-3xl
+        rounded-full
+      "></div>
 
+            </div>
+
+          </div>
         </motion.div>
       </div>
     </section>

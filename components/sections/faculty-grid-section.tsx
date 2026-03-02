@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Phone, BookOpen, Award } from "lucide-react"
+import { LazyImage } from "@/components/ui/lazy-image"
 
 const facultyMembers = [
   {
@@ -13,20 +14,20 @@ const facultyMembers = [
     name: "Dr. Sarah Johnson",
     title: "Principal",
     department: "Administration",
-    image: "/placeholder.svg?height=300&width=300&text=Dr.+Sarah+Johnson",
+    image: "/school-faculty/principal.jpg",
     email: "s.johnson@pinnacleacademy.edu",
     phone: "(555) 123-4567",
     education: "Ph.D. Educational Leadership, Harvard University",
     experience: "20+ years in education",
     specialties: ["Educational Leadership", "Curriculum Development", "School Administration"],
-  bio: "Dr. Johnson brings over two decades of educational excellence to Aira Bal Vidya Mandir Inter College. Her vision for innovative learning environments has transformed countless student experiences.",
+    bio: "Dr. Johnson brings over two decades of educational excellence to Aira Bal Vidya Mandir Inter College. Her vision for innovative learning environments has transformed countless student experiences.",
   },
   {
     id: 2,
     name: "Prof. Michael Chen",
     title: "Head of Mathematics",
     department: "Mathematics",
-    image: "/placeholder.svg?height=300&width=300&text=Prof.+Michael+Chen",
+    image: "/school-faculty/abhinav.jpg",
     email: "m.chen@pinnacleacademy.edu",
     phone: "(555) 123-4568",
     education: "M.S. Mathematics, MIT",
@@ -39,7 +40,7 @@ const facultyMembers = [
     name: "Dr. Emily Rodriguez",
     title: "English Department Chair",
     department: "English",
-    image: "/placeholder.svg?height=300&width=300&text=Dr.+Emily+Rodriguez",
+    image: "/school-faculty/chandan.jpg",
     email: "e.rodriguez@pinnacleacademy.edu",
     phone: "(555) 123-4569",
     education: "Ph.D. English Literature, Yale University",
@@ -52,7 +53,7 @@ const facultyMembers = [
     name: "Mr. David Thompson",
     title: "Science Department Head",
     department: "Science",
-    image: "/placeholder.svg?height=300&width=300&text=Mr.+David+Thompson",
+    image: "/school-faculty/shivansh.jpg",
     email: "d.thompson@pinnacleacademy.edu",
     phone: "(555) 123-4570",
     education: "M.S. Chemistry, Stanford University",
@@ -65,7 +66,7 @@ const facultyMembers = [
     name: "Ms. Lisa Park",
     title: "History Teacher",
     department: "Social Studies",
-    image: "/placeholder.svg?height=300&width=300&text=Ms.+Lisa+Park",
+    image: "/school-faculty/saksham.png",
     email: "l.park@pinnacleacademy.edu",
     phone: "(555) 123-4571",
     education: "M.A. History, Columbia University",
@@ -78,7 +79,7 @@ const facultyMembers = [
     name: "Mr. James Wilson",
     title: "Physical Education Director",
     department: "Physical Education",
-    image: "/placeholder.svg?height=300&width=300&text=Mr.+James+Wilson",
+    image: "/amit.png",
     email: "j.wilson@pinnacleacademy.edu",
     phone: "(555) 123-4572",
     education: "M.S. Kinesiology, UCLA",
@@ -91,7 +92,7 @@ const facultyMembers = [
     name: "Ms. Anna Martinez",
     title: "Art Department Chair",
     department: "Arts",
-    image: "/placeholder.svg?height=300&width=300&text=Ms.+Anna+Martinez",
+    image: "/school-faculty/shivansh.jpg",
     email: "a.martinez@pinnacleacademy.edu",
     phone: "(555) 123-4573",
     education: "M.F.A. Fine Arts, RISD",
@@ -104,7 +105,7 @@ const facultyMembers = [
     name: "Dr. Robert Kim",
     title: "Computer Science Teacher",
     department: "Technology",
-    image: "/placeholder.svg?height=300&width=300&text=Dr.+Robert+Kim",
+    image: "/school-faculty/chandan.jpg",
     email: "r.kim@pinnacleacademy.edu",
     phone: "(555) 123-4574",
     education: "Ph.D. Computer Science, Carnegie Mellon",
@@ -194,10 +195,11 @@ export function FacultyGridSection() {
                 <CardContent className="p-6">
                   <div className="text-center">
                     <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 overflow-hidden shadow-inner">
-                      <img
+                      <LazyImage
                         src={member.image || "/placeholder.svg"}
                         alt={member.name}
-                        className="w-full h-full object-cover"
+                        wrapperClassName="w-full h-full"
+                        imgClassName="object-cover"
                       />
                     </div>
                     <h3 className="font-serif font-bold text-lg mb-1 text-slate-900">{member.name}</h3>
@@ -227,87 +229,164 @@ export function FacultyGridSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4"
+            className="
+      fixed inset-0 z-50
+      bg-black/60 backdrop-blur-sm
+      flex items-end sm:items-center justify-center
+      p-0 sm:p-4
+    "
             onClick={() => setSelectedFaculty(null)}
           >
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-background rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+              initial={{ y: 80, opacity: 0, scale: 0.98 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              exit={{ y: 80, opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.3 }}
+              className="
+        bg-background
+        w-full sm:max-w-2xl
+        h-[92vh] sm:h-auto
+        rounded-t-3xl sm:rounded-2xl
+        overflow-y-auto
+        shadow-2xl
+      "
               onClick={(e) => e.stopPropagation()}
             >
-              <Card>
-                <CardContent className="p-8">
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-32 h-32 rounded-full bg-muted overflow-hidden">
-                        <img
+              <Card className="border-none shadow-none">
+                <CardContent className="p-5 sm:p-8">
+
+                  {/* Close button mobile top */}
+                  <div className="flex justify-between items-center mb-4 sm:hidden">
+                    <div className="w-12 h-1.5 bg-muted rounded-full mx-auto"></div>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setSelectedFaculty(null)}
+                      className="absolute right-4 top-4"
+                    >
+                      ✕
+                    </Button>
+                  </div>
+
+                  {/* Main layout */}
+                  <div className="flex flex-col sm:flex-row gap-5 sm:gap-6">
+
+                    {/* Image */}
+                    <div className="flex justify-center sm:block">
+                      <div className="
+                w-24 h-24 sm:w-32 sm:h-32
+                rounded-full
+                bg-muted
+                overflow-hidden
+                shadow-md
+              ">
+                        <LazyImage
                           src={selectedFaculty.image || "/placeholder.svg"}
                           alt={selectedFaculty.name}
-                          className="w-full h-full object-cover"
+                          wrapperClassName="w-full h-full"
+                          imgClassName="object-cover w-full h-full"
                         />
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2">{selectedFaculty.name}</h3>
-                      <p className="text-slate-600 font-medium mb-2">{selectedFaculty.title}</p>
-                      <Badge variant="secondary" className="mb-4 bg-blue-50 text-blue-700">
+
+                    {/* Content */}
+                    <div className="flex-1 text-center sm:text-left">
+
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">
+                        {selectedFaculty.name}
+                      </h3>
+
+                      <p className="text-slate-600 text-sm sm:text-base mb-2">
+                        {selectedFaculty.title}
+                      </p>
+
+                      <Badge className="mb-4 bg-blue-50 text-blue-700">
                         {selectedFaculty.department}
                       </Badge>
 
-                      <div className="space-y-4">
+                      <div className="space-y-4 text-sm sm:text-base">
+
+                        {/* Education */}
                         <div>
-                          <div className="flex items-center mb-2">
+                          <div className="flex items-center justify-center sm:justify-start mb-1">
                             <BookOpen className="h-4 w-4 text-blue-600 mr-2" />
                             <span className="font-semibold">Education</span>
                           </div>
-                          <p className="text-slate-600 text-sm">{selectedFaculty.education}</p>
+                          <p className="text-slate-600">
+                            {selectedFaculty.education}
+                          </p>
                         </div>
 
+                        {/* Experience */}
                         <div>
-                          <div className="flex items-center mb-2">
+                          <div className="flex items-center justify-center sm:justify-start mb-1">
                             <Award className="h-4 w-4 text-blue-600 mr-2" />
                             <span className="font-semibold">Experience</span>
                           </div>
-                          <p className="text-slate-600 text-sm">{selectedFaculty.experience}</p>
+                          <p className="text-slate-600">
+                            {selectedFaculty.experience}
+                          </p>
                         </div>
 
+                        {/* Specialties */}
                         <div>
                           <h4 className="font-semibold mb-2">Specialties</h4>
-                          <div className="flex flex-wrap gap-2">
+                          <div className="flex flex-wrap justify-center sm:justify-start gap-2">
                             {selectedFaculty.specialties.map((specialty, index) => (
-                              <Badge key={index} variant="outline" className="border-blue-100">
+                              <Badge key={index} variant="outline">
                                 {specialty}
                               </Badge>
                             ))}
                           </div>
                         </div>
 
+                        {/* About */}
                         <div>
                           <h4 className="font-semibold mb-2">About</h4>
-                          <p className="text-slate-600 text-sm">{selectedFaculty.bio}</p>
+                          <p className="text-slate-600">
+                            {selectedFaculty.bio}
+                          </p>
                         </div>
 
-                        <div className="flex gap-4 pt-4">
-                          <Button variant="outline" size="sm" className="bg-transparent text-blue-600">
+                        {/* Contact Buttons */}
+                        <div className="
+                  flex flex-col sm:flex-row
+                  gap-3
+                  pt-4
+                ">
+                          <Button
+                            variant="outline"
+                            className="w-full sm:w-auto text-blue-600"
+                          >
                             <Mail className="h-4 w-4 mr-2" />
-                            {selectedFaculty.email}
+                            Email
                           </Button>
-                          <Button variant="outline" size="sm" className="bg-transparent text-blue-600">
+
+                          <Button
+                            variant="outline"
+                            className="w-full sm:w-auto text-blue-600"
+                          >
                             <Phone className="h-4 w-4 mr-2" />
-                            {selectedFaculty.phone}
+                            Call
                           </Button>
                         </div>
+
                       </div>
+
                     </div>
+
                   </div>
 
-                  <div className="flex justify-end mt-6">
-                    <Button onClick={() => setSelectedFaculty(null)}>Close</Button>
+                  {/* Close desktop */}
+                  <div className="hidden sm:flex justify-end mt-6">
+                    <Button onClick={() => setSelectedFaculty(null)}>
+                      Close
+                    </Button>
                   </div>
+
                 </CardContent>
               </Card>
+
             </motion.div>
           </motion.div>
         )}

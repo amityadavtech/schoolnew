@@ -1,9 +1,11 @@
 'use client'
 
 import * as React from 'react'
+import { useState } from 'react'
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
 
 import { cn } from '@/lib/utils'
+import { Skeleton } from './skeleton'
 
 function Avatar({
   className,
@@ -25,12 +27,27 @@ function AvatarImage({
   className,
   ...props
 }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+  const [loaded, setLoaded] = useState(false)
+
+  const handleLoad: React.ReactEventHandler<HTMLImageElement> = (e) => {
+    setLoaded(true)
+    if (props.onLoad) props.onLoad(e)
+  }
+
   return (
-    <AvatarPrimitive.Image
-      data-slot="avatar-image"
-      className={cn('aspect-square size-full', className)}
-      {...props}
-    />
+    <>
+      {!loaded && <Skeleton className="absolute inset-0 w-full h-full" />}
+      <AvatarPrimitive.Image
+        data-slot="avatar-image"
+        className={cn(
+          'aspect-square size-full transition-opacity duration-300',
+          className,
+          loaded ? 'opacity-100' : 'opacity-0'
+        )}
+        onLoad={handleLoad}
+        {...props}
+      />
+    </>
   )
 }
 

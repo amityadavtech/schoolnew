@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import Image from "next/image"
+import { LazyImage } from "@/components/ui/lazy-image"
 import { ArrowRight, Play, Award, Users, BookOpen, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
@@ -20,12 +20,12 @@ const HERO_SLIDES = [
     subtitle: "Preparing Students for Success",
   },
   {
-    image: "/students-playing-basketball-in-school-gymnasium.jpg",
+    image: "School-Image/science-fair-with-students-presenting-projects.jpg",
     title: "Holistic Development Through Sports",
     subtitle: "Building Strong Character & Confidence",
   },
   {
-    image: "/school-cultural-festival-with-diverse-students-cel.jpg",
+    image: "/School-Image/school-cultural-festival-with-diverse-students-cel.jpg",
     title: "Celebrating Diversity & Culture",
     subtitle: "Creating Inclusive Learning Communities",
   },
@@ -211,10 +211,11 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="absolute inset-0 z-0 overflow-hidden"
         >
-          <img
+          <LazyImage
             src={slide.image}
             alt={slide.title}
-            className="hero-bg-image w-full h-full object-cover"
+            wrapperClassName="w-full h-full"
+            imgClassName="hero-bg-image object-contain md:object-cover"
             loading="eager"
             decoding="async"
           />
@@ -268,28 +269,85 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-stats-grid grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 md:gap-8 max-w-2xl mx-auto px-3 sm:px-0 mt-2"
+            className="
+    hero-stats-grid
+    grid grid-cols-3 sm:grid-cols-3
+    gap-2 sm:gap-6
+    max-w-2xl mx-auto
+    px-2 sm:px-0
+    mt-6
+  "
           >
-            <div className="hero-stat-card text-center bg-white/10 backdrop-blur-lg p-4 sm:p-4 rounded-xl border border-white/20 shadow-lg">
-              <div className="flex items-center justify-center mb-2">
-                <Users className="hero-stat-icon h-5 sm:h-6 w-5 sm:w-6 mr-2 text-blue-400" />
-                <span className="hero-stat-value text-xl sm:text-2xl font-bold text-white">1,200+</span>
+            {/* Card 1 */}
+            <div
+              className="
+      hero-stat-card
+      text-center
+      p-2 sm:p-4
+      rounded-lg sm:rounded-xl
+      border border-white/10 sm:border-white/20
+      bg-transparent sm:bg-white/10
+      backdrop-blur-none sm:backdrop-blur-lg
+      shadow-none sm:shadow-lg
+    "
+            >
+              <div className="flex items-center justify-center mb-1">
+                <Users className="h-4 w-4 sm:h-6 sm:w-6 mr-1 text-blue-400" />
+                <span className="text-base sm:text-2xl font-bold text-white">
+                  1,200+
+                </span>
               </div>
-              <p className="hero-stat-label text-white/80 text-xs sm:text-sm">Active Students</p>
+              <p className="text-white/70 text-[10px] sm:text-sm">
+                Students
+              </p>
             </div>
-            <div className="hero-stat-card text-center bg-white/10 backdrop-blur-lg p-4 sm:p-4 rounded-xl border border-white/20 shadow-lg">
-              <div className="flex items-center justify-center mb-2">
-                <BookOpen className="hero-stat-icon h-5 sm:h-6 w-5 sm:w-6 mr-2 text-blue-400" />
-                <span className="hero-stat-value text-xl sm:text-2xl font-bold text-white">95%</span>
+
+            {/* Card 2 */}
+            <div
+              className="
+      hero-stat-card
+      text-center
+      p-2 sm:p-4
+      rounded-lg sm:rounded-xl
+      border border-white/10 sm:border-white/20
+      bg-transparent sm:bg-white/10
+      backdrop-blur-none sm:backdrop-blur-lg
+      shadow-none sm:shadow-lg
+    "
+            >
+              <div className="flex items-center justify-center mb-1">
+                <BookOpen className="h-4 w-4 sm:h-6 sm:w-6 mr-1 text-blue-400" />
+                <span className="text-base sm:text-2xl font-bold text-white">
+                  95%
+                </span>
               </div>
-              <p className="hero-stat-label text-white/80 text-xs sm:text-sm">College Acceptance</p>
+              <p className="text-white/70 text-[10px] sm:text-sm">
+                Success
+              </p>
             </div>
-            <div className="hero-stat-card text-center bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-lg border border-white/20">
-              <div className="flex items-center justify-center mb-2">
-                <Award className="hero-stat-icon h-5 sm:h-6 w-5 sm:w-6 mr-2 text-blue-400" />
-                <span className="hero-stat-value text-2xl font-bold text-white">50+</span>
+
+            {/* Card 3 */}
+            <div
+              className="
+      hero-stat-card
+      text-center
+      p-2 sm:p-4
+      rounded-lg sm:rounded-xl
+      border border-white/10 sm:border-white/20
+      bg-transparent sm:bg-white/10
+      backdrop-blur-none sm:backdrop-blur-lg
+      shadow-none sm:shadow-lg
+    "
+            >
+              <div className="flex items-center justify-center mb-1">
+                <Award className="h-4 w-4 sm:h-6 sm:w-6 mr-1 text-blue-400" />
+                <span className="text-base sm:text-2xl font-bold text-white">
+                  50+
+                </span>
               </div>
-              <p className="hero-stat-label text-white/80 text-sm">Awards Won</p>
+              <p className="text-white/70 text-[10px] sm:text-sm">
+                Awards
+              </p>
             </div>
           </motion.div>
         </motion.div>
