@@ -20,7 +20,7 @@ const HERO_SLIDES = [
     subtitle: "Preparing Students for Success",
   },
   {
-    image: "School-Image/science-fair-with-students-presenting-projects.jpg",
+    image: "/School-Image/science-fair-with-students-presenting-projects.jpg",
     title: "Holistic Development Through Sports",
     subtitle: "Building Strong Character & Confidence",
   },

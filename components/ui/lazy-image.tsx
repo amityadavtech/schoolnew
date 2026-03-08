@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import { cn } from '@/lib/utils'
 import { Skeleton } from './skeleton'
+import Image from 'next/image'
 
-interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface LazyImageProps {
   /**
    * Additional classes to apply to the outer wrapper (the sizing container).
    */
@@ -11,6 +12,15 @@ interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
    * Classes that should be applied directly to the <img> element.
    */
   imgClassName?: string
+  src: string
+  alt: string
+  loading?: 'lazy' | 'eager'
+  priority?: boolean
+  fill?: boolean
+  width?: number
+  height?: number
+  decoding?: 'async' | 'auto' | 'sync'
+  onLoad?: () => void
 }
 
 export function LazyImage({
@@ -18,6 +28,12 @@ export function LazyImage({
   imgClassName,
   src,
   alt,
+  loading = 'lazy',
+  priority = false,
+  fill = true,
+  width,
+  height,
+  decoding,
   onLoad,
   ...props
 }: LazyImageProps) {
@@ -38,22 +54,28 @@ export function LazyImage({
     return () => clearTimeout(timer)
   }, [loaded])
 
-  const handleLoad: React.ReactEventHandler<HTMLImageElement> = (e) => {
+  const handleLoad = () => {
     setLoaded(true)
     if (onLoad) {
-      onLoad(e)
+      onLoad()
     }
   }
 
   return (
     <div className={cn('relative', wrapperClassName)}>
       {showSkeleton && <Skeleton className="absolute inset-0 w-full h-full" />}
-      <img
+      <Image
         src={src}
         alt={alt}
+        fill={fill}
+        width={width}
+        height={height}
+        loading={loading}
+        priority={priority}
+        decoding={decoding}
         onLoad={handleLoad}
         className={cn(
-          'w-full h-full transition-opacity duration-300',
+          'w-full h-full transition-opacity duration-300 object-cover',
           imgClassName,
           loaded ? 'opacity-100' : 'opacity-0'
         )}
