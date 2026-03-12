@@ -59,7 +59,7 @@ export default function HomePage() {
           <FeaturesSection />
         </div>
 
-        <div className="bg-black/80 backdrop-blur-sm">
+        <div className="bg-black/60 backdrop-blur-[2px]">
           <StatsSection />
         </div>
 
@@ -67,7 +67,7 @@ export default function HomePage() {
           <PhotoGallerySection />
         </div>
 
-        <div className="bg-black/80 backdrop-blur-sm">
+        <div className="bg-black/60 backdrop-blur-[2px]">
           <TestimonialsSection />
         </div>
 
@@ -79,7 +79,7 @@ export default function HomePage() {
           <MapSection />
         </div>
 
-        <div className="bg-black/80 backdrop-blur-[2px]">
+        <div className="bg-black/60 backdrop-blur-[2px]">
           <ContactFormSection variant="image" />
         </div>
       </main>
