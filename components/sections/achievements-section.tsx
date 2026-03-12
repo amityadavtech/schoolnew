@@ -52,7 +52,7 @@ const achievements = [
 
 export function AchievementsSection() {
   return (
-    <section className="relative py-20 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+    <section className="relative py-20 bg-gradient-to-b from-white to-slate-100 dark:from-slate-900 dark:to-slate-950">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -54,7 +54,7 @@ export function TestimonialsSection() {
   }, [isMobile]);
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
+    <section className="py-12 sm:py-16 md:py-24 px-4  dark:from-slate-950 dark:to-slate-900">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
@@ -65,12 +65,12 @@ export function TestimonialsSection() {
           className="text-center mb-10 sm:mb-12 md:mb-16"
         >
           <div className="inline-block mb-3 sm:mb-4">
-            <span className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-100/50 dark:bg-blue-900/30 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full">
+            <span className="mb-5 sm:mb-6 text-white bg-white/15 border border-white/25 backdrop-blur-md text-xs sm:text-sm inline-flex px-3 py-1.5 rounded-full shadow-lg">
               Client Stories
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-gray-900 dark:text-white mb-3 sm:mb-4">What Our Community Says</h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-white dark:text-grey mb-3 sm:mb-4">What Our Community Says</h2>
+          <p className="text-sm sm:text-base md:text-lg text-white dark:text-gray-600 max-w-2xl mx-auto leading-relaxed px-2">
             Hear from parents, students, and alumni about their experiences at Aira Bal Vidya Mandir Inter College.
           </p>
         </motion.div>

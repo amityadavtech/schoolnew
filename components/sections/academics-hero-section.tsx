@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 
 export function AcademicsHeroSection() {
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+    <section className="relative overflow-hidden pt-12 pb-20 bg-gradient-to-b from-white  to-slate-100 dark:from-slate-900 dark:to-slate-950">
       {/* Decorative accents */}
       <div className="pointer-events-none absolute -left-20 -top-10 w-72 h-72 rounded-full bg-gradient-to-br from-blue-200/30 to-indigo-200/20 blur-3xl opacity-60" />
       <div className="pointer-events-none absolute -right-20 -bottom-10 w-72 h-72 rounded-full bg-gradient-to-br from-indigo-200/20 to-blue-200/10 blur-2xl opacity-50" />
@@ -27,15 +27,17 @@ export function AcademicsHeroSection() {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
                 Academic Excellence
               </h1>
+
               <div className="mt-3 text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-3xl">
-                <p>
-                  Our comprehensive academic programs are designed to <span className="font-semibold text-blue-700">challenge</span>, <span className="italic text-indigo-600">inspire</span>, and prepare students for success in higher education and beyond.
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed font-[500] font-sans">
+                  Our comprehensive academic programs are designed to challenge<span className="font-bold text-primary">inspire</span> and prepare students for success in higher education and beyond.
+
                 </p>
               </div>
             </div>
           </div>
 
-         
+
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
             <motion.div whileHover={{ y: -6 }} className="rounded-2xl p-6 bg-white shadow-md hover:shadow-2xl transition-shadow duration-300 border border-gray-100 text-center">

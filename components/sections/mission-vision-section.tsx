@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 export function MissionVisionSection() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white  to-slate-100 dark:from-slate-900 dark:to-slate-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 sm:mb-10 md:mb-12">
           <span className="inline-block text-xs sm:text-sm font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">Mission & Vision</span>

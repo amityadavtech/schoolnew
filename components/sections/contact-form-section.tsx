@@ -16,8 +16,9 @@ import {
 import { Button } from "@/components/ui/button"
 import { Send, CheckCircle } from "lucide-react"
 
-export function ContactFormSection() {
+export function ContactFormSection({ variant = "image" }: { variant?: "image" | "light" }) {
 
+  const isImageBg = variant === "image"
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const [formData, setFormData] = useState({
@@ -43,7 +44,7 @@ export function ContactFormSection() {
 
   if (isSubmitted) {
     return (
-      <section className="py-16 sm:py-20 px-4 bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:to-slate-900">
+      <section className="py-16 sm:py-20 px-4  dark:from-slate-950 dark:to-slate-900">
 
         <div className="max-w-md mx-auto">
 
@@ -86,7 +87,7 @@ export function ContactFormSection() {
 
   return (
 
-    <section className="py-14 sm:py-20 px-4 bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:to-slate-900">
+    <section className="py-14 sm:py-20 px-4">
 
       <div className="max-w-4xl mx-auto">
 
@@ -99,15 +100,29 @@ export function ContactFormSection() {
           className="text-center mb-8 sm:mb-12"
         >
 
-          <span className="inline-block text-xs sm:text-sm font-medium px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 mb-4">
-            Contact Us
-          </span>
+          <div className="inline-block mb-3 sm:mb-4">
+            <span
+              className={`text-xs sm:text-sm inline-flex px-3 py-1.5 rounded-full shadow-lg border backdrop-blur-md
+      ${isImageBg
+                  ? "text-white bg-white/15 border-white/25"
+                  : "text-blue-700 bg-blue-50 border-blue-200"
+                }`}
+            >
+              Contact Us
+            </span>
+          </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+          <h2
+            className={`text-2xl sm:text-3xl md:text-4xl font-bold ${isImageBg ? "text-white" : "text-slate-900"
+              }`}
+          >
             Get in Touch
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-lg mx-auto">
+          <p
+            className={`mt-3 text-sm sm:text-base max-w-lg mx-auto ${isImageBg ? "text-slate-300" : "text-slate-600"
+              }`}
+          >
             Fill the form and our team will contact you shortly.
           </p>
 

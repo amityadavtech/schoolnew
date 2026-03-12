@@ -41,7 +41,7 @@ function AnimatedNumber({ number, suffix = "" }: { number: number; suffix?: stri
 
 export function StatsSection() {
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
+    <section className="py-12 sm:py-16 md:py-24 px-4  dark:from-slate-900 dark:via-slate-950 dark:to-slate-900">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
@@ -52,14 +52,14 @@ export function StatsSection() {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <div className="inline-block mb-3 sm:mb-4">
-            <span className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 bg-blue-100/50 dark:bg-blue-900/30 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full">
+            <span className="mb-5 sm:mb-6 text-white bg-white/15 border border-white/25 backdrop-blur-md text-xs sm:text-sm inline-flex px-3 py-1.5 rounded-full shadow-lg">
               Our Impact
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-gray-900 dark:text-white mb-2 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-white dark:text-grey-900 mb-2 sm:mb-4">
             Our Achievements in Numbers
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed px-2">
+          <p className="text-sm sm:text-base md:text-lg text-gray-300 dark:text-gray-600 max-w-2xl mx-auto leading-relaxed px-2">
             These numbers reflect our commitment to excellence and the success of our educational community.
           </p>
         </motion.div>

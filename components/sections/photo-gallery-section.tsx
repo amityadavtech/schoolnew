@@ -46,7 +46,7 @@ export function PhotoGallerySection({ showAll = false }: { showAll?: boolean }) 
   }
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+    <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-white to-slate-100 dark:from-slate-950 dark:to-slate-900">
       <div className="container mx-auto max-w-7xl">
         <div className="mb-8 sm:mb-10 md:mb-12 text-center">
           <div className="inline-block mb-3 sm:mb-4">

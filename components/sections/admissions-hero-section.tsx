@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export function AdmissionsHeroSection() {
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-white to-slate-100 dark:from-slate-900 dark:to-slate-950">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,8 +22,9 @@ export function AdmissionsHeroSection() {
               Join Our Community
             </h1>
           </div>
-          <p className="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-medium">
-            Begin your journey at <span className="font-semibold text-blue-700 dark:text-blue-400">Aira Bal Vidya Mandir Inter College</span>, where academic excellence meets personal growth. We're excited to welcome passionate learners who are ready to make their mark on the world.
+         
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed font-[500] font-sans">
+            Begin your journey at <span className="font-bold text-primary">Aira Bal Vidya Mandir Inter College</span> , where academic excellence meets personal growth. We're excited to welcome passionate learners who are ready to make their mark on the world.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 px-4 sm:px-0">

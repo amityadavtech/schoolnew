@@ -34,7 +34,7 @@ const milestones = [
 
 export function HistorySection() {
   return (
-    <section className="relative py-20 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+    <section className="relative py-20 bg-gradient-to-b from-white  to-slate-100 dark:from-slate-900 dark:to-slate-950">
       {/* subtle decorative gradient */}
       <div className="pointer-events-none absolute -left-20 top-4 w-72 h-72 rounded-full bg-gradient-to-br from-blue-200/20 to-indigo-200/10 blur-3xl opacity-40" />
       <div className="container mx-auto px-4">

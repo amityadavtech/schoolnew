@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/sections/hero-section"
@@ -15,9 +15,14 @@ import { ModernPopup } from "@/components/sections/modern-popup"
 import { popupData } from "@/lib/popup-data"
 
 export default function HomePage() {
-  // Keep popup component available but paused (not shown) by default.
-  // To enable the popup again, set the initial state to `true`.
+  // popup visibility state; start hidden and open after a short delay
   const [showPopup, setShowPopup] = useState(false)
+
+  // open the popup once the client component mounts, after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => setShowPopup(true), 3000)
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleClose = () => {
     setShowPopup(false)
@@ -26,6 +31,16 @@ export default function HomePage() {
   return (
     <div className="min-h-screen max-w-screen">
       <Navigation />
+
+      {/* fixed campus background for parallax reveal */}
+      <div className="fixed inset-0 -z-20 pointer-events-none">
+        <img
+          src="/School-Image/modern-school-campus-with-students-walking--bright.jpg"
+          alt="Campus background"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       <main>
         {/* Modern Popup Modal - Static data from lib/popup-data.ts */}
         <ModernPopup
@@ -33,16 +48,40 @@ export default function HomePage() {
           onClose={handleClose}
           image={popupData.image}
           title={popupData.title}
+          badge={popupData.badge}
           description={popupData.description}
         />
         <HeroSection />
-        <FeaturesSection />
-        <StatsSection />
-        <PhotoGallerySection />
-        <TestimonialsSection />
-        <CTASection />
-        <MapSection />
-        <ContactFormSection />
+
+
+        {/* subsequent sections with alternating solid/transparent backgrounds */}
+        <div className="bg-white">
+          <FeaturesSection />
+        </div>
+
+        <div className="bg-black/80 backdrop-blur-sm">
+          <StatsSection />
+        </div>
+
+        <div className="bg-white">
+          <PhotoGallerySection />
+        </div>
+
+        <div className="bg-black/80 backdrop-blur-sm">
+          <TestimonialsSection />
+        </div>
+
+        <div className="bg-white">
+          <CTASection />
+        </div>
+
+        <div className="bg-white">
+          <MapSection />
+        </div>
+
+        <div className="bg-black/80 backdrop-blur-[2px]">
+          <ContactFormSection variant="image" />
+        </div>
       </main>
       <Footer />
     </div>

@@ -1,8 +1,9 @@
 // Static Popup Data - Easy to customize
 export const popupData = {
-  image: "/modern-library-study.png", // Change this to any image in public/ folder
-  title: "Welcome to Aira Bal Vidya Mandir Inter College",
-  description: "Discover excellence in education with our world-class facilities and dedicated faculty. Join us on a journey of academic and personal growth.",
+  image: "/Popup/AdmissionOpen.jpeg", // Change this to any image in public/ folder
+  title: "Admission Open for 2026-27!", // Catchy headline for the popup
+  badge: "Admissions Open 2026-27",
+  description: "Hurry Up! Enroll Now for the 2026-27 Academic Year. Limited Seats Available!",
 }
 
 // Available images in public/ folder:

@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
 import { FileText, Users, CheckCircle, Calendar } from "lucide-react"
 
 const processSteps = [
@@ -37,56 +36,149 @@ const processSteps = [
 
 export function AdmissionProcessSection() {
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950" id="process">
-      {/* Decorative blobs */}
-      <div className="pointer-events-none absolute -left-24 -top-16 w-80 h-80 rounded-full bg-gradient-to-br from-blue-200/30 to-indigo-200/20 blur-3xl opacity-60"></div>
-      <div className="pointer-events-none absolute -right-24 -bottom-16 w-72 h-72 rounded-full bg-gradient-to-br from-indigo-200/20 to-blue-200/10 blur-2xl opacity-50"></div>
+    <>
+      <style>{`
+     
+        .ap-card {
+          transition: transform 0.32s cubic-bezier(0.22,1,0.36,1), box-shadow 0.32s ease;
+        }
+        .ap-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 48px -8px rgba(37,99,235,0.13), 0 4px 16px -2px rgba(0,0,0,0.06);
+        }
+        .ap-card:hover .ap-icon-wrap {
+          background: #2563eb;
+          border-color: #2563eb;
+        }
+        .ap-card:hover .ap-icon-wrap svg {
+          color: #ffffff;
+        }
+        .ap-icon-wrap {
+          transition: background 0.25s ease, border-color 0.25s ease;
+        }
 
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-3 sm:mb-4">
-            Join Our Community: Admission Process
-          </h2>
-          <p className="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-medium">
-            Our streamlined admission process is designed to get to know you better while making the application experience as smooth as possible.
-          </p>
-        </motion.div>
+        /* Connector line between cards on desktop */
+        .ap-connector {
+          position: absolute;
+          top: 2.75rem;
+          right: -1.25rem;
+          width: 2.5rem;
+          height: 2px;
+          background: linear-gradient(90deg, #bfdbfe, #93c5fd);
+          z-index: 10;
+        }
+        .ap-connector::after {
+          content: '';
+          position: absolute;
+          right: -4px;
+          top: -3px;
+          width: 8px;
+          height: 8px;
+          border-top: 2px solid #93c5fd;
+          border-right: 2px solid #93c5fd;
+          transform: rotate(45deg);
+        }
+      `}</style>
 
-        <div className="flex flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6">
-          {processSteps.map((step, index) => (
-            <motion.div
-              key={step.step}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="rounded-2xl p-6 bg-white shadow-md hover:shadow-2xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center text-center h-full relative">
-                <CardContent className="p-0 flex flex-col items-center">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mr-3 font-bold shadow-sm">
-                      <span className="text-blue-700">{step.step}</span>
-                    </div>
-                    <step.icon className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h3 className="font-serif font-semibold text-base sm:text-lg mb-2 text-slate-900">{step.title}</h3>
-                  <p className="text-slate-600 text-sm sm:text-base font-sans mb-2">{step.description}</p>
-                  <div className="text-sm text-slate-600 font-medium">{step.timeline}</div>
-                </CardContent>
+      <section
+        className="ap-root relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-blue-50/30 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 pt-16 pb-24 md:pt-24 md:pb-32"
+        id="process"
+      >
+        {/* Dot grid */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: "radial-gradient(circle, #1d4ed8 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+
+        {/* Glow orbs */}
+        <div className="pointer-events-none absolute -left-32 -top-10 w-96 h-96 rounded-full bg-blue-200/20 dark:bg-blue-900/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 -bottom-10 w-80 h-80 rounded-full bg-blue-100/30 dark:bg-blue-800/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+          {/* ── Header ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-px w-8 bg-blue-600 dark:bg-blue-400 rounded-full" />
+              <span className="text-xs font-semibold tracking-widest uppercase text-blue-600 dark:text-blue-400">
+                Admissions
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-4 max-w-xl">
+              Join Our Community:<br />Admission Process
+            </h2>
+            <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-light">
+              Our streamlined admission process is designed to get to know you better while making the application experience as smooth as possible.
+            </p>
+          </motion.div>
+
+          {/* ── Steps Grid ── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {processSteps.map((step, index) => (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.52, delay: index * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                {/* Connector arrow — desktop only, not on last card */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-slate-200" />
+                  <div className="ap-connector hidden lg:block" />
                 )}
-              </Card>
-            </motion.div>
-          ))}
+
+                <div className="ap-card h-full rounded-2xl border border-blue-100 dark:border-blue-900/40 bg-white dark:bg-slate-800/60 shadow-sm overflow-hidden flex flex-col">
+
+                  {/* Top accent bar */}
+                  <div className="h-[3px] bg-gradient-to-r from-blue-700 via-blue-600 to-blue-400" />
+
+                  <div className="p-6 flex flex-col items-center text-center gap-3 flex-1">
+
+                    {/* Step number + icon */}
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 shadow-sm shadow-blue-200 dark:shadow-blue-900/40">
+                        {step.step}
+                      </span>
+                      <div className="ap-icon-wrap w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-800 flex items-center justify-center">
+                        <step.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug">
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-light flex-1">
+                      {step.description}
+                    </p>
+
+                    {/* Timeline badge */}
+                    <div className="w-full pt-3 border-t border-blue-50 dark:border-blue-900/40">
+                      <span className="inline-block text-xs font-semibold text-blue-700 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-800 px-3 py-1 rounded-full tracking-wide">
+                        {step.timeline}
+                      </span>
+                    </div>
+
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

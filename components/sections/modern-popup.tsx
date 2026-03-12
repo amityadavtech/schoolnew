@@ -10,6 +10,7 @@ interface ModernPopupProps {
   onClose: () => void
   image?: string
   title?: string
+  badge?: string
   description?: string
 }
 
@@ -18,17 +19,17 @@ export function ModernPopup({
   onClose,
   image = "",
   title = "",
+  badge = "",
   description = "",
+  
 }: ModernPopupProps) {
 
-  // ESC key close
   useEffect(() => {
     const handler = (e: KeyboardEvent) => e.key === "Escape" && onClose()
     if (isOpen) document.addEventListener("keydown", handler)
     return () => document.removeEventListener("keydown", handler)
   }, [isOpen, onClose])
 
-  // Disable scroll on body
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto"
     return () => { document.body.style.overflow = "auto" }
@@ -40,7 +41,6 @@ export function ModernPopup({
         <>
           {/* BACKDROP */}
           <motion.div
-            key="bg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -49,85 +49,59 @@ export function ModernPopup({
             className="fixed inset-0 z-40 bg-black/60 backdrop-blur-md"
           />
 
-          {/* POPUP WRAPPER */}
+          {/* POPUP */}
           <motion.div
-            key="panel"
-            initial={{ opacity: 0, scale: 0.98, y: 18 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.98, y: 18 }}
-            transition={{ duration: 0.22, ease: [0.2, 0.9, 0.25, 1] }}
-            className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-3 sm:p-6"
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-2"
           >
-            {/* POPUP CARD */}
-            <div
-              className="relative w-full max-w-md sm:max-w-xl bg-white dark:bg-[#0e0f12] rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-xl flex flex-col mx-2 sm:mx-0"
-            >
+            <div className="relative w-full max-w-xl bg-white dark:bg-[#0e0f12] rounded-2xl shadow-2xl overflow-hidden border border-white/10">
 
-              {/* CLOSE BUTTON */}
+              {/* CLOSE */}
               <button
                 onClick={onClose}
-                aria-label="Close"
-                className="absolute right-3 top-3 z-20 p-2 rounded-full bg-white/90 dark:bg-white/10 hover:bg-white/95 dark:hover:bg-white/20 backdrop-blur-md transition"
+                className="absolute right-4 top-4 z-20 p-2 rounded-full bg-white/90 dark:bg-white/10 hover:bg-white/95 dark:hover:bg-white/20 backdrop-blur-md transition"
               >
                 <X className="w-5 h-5 text-gray-700 dark:text-gray-300" />
               </button>
 
-              {/* IMAGE (NEVER FULL HEIGHT) */}
+              {/* IMAGE */}
               {image && (
-                <div className="relative w-full h-36 sm:h-56 overflow-hidden">
+                <div className="relative w-full h-56 sm:h-64 overflow-hidden">
                   <LazyImage
                     src={image}
                     alt={title}
                     wrapperClassName="w-full h-full"
                     imgClassName="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
+                  {/* overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                  {/* badge */}
+                  <div className="absolute left-5 bottom-5 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                    {badge}
+                  </div>
                 </div>
               )}
 
               {/* CONTENT */}
-              <div className="p-5 sm:p-7 overflow-auto min-w-0">
+              <div className="p-6 sm:p-4 text-center">
 
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white truncate">
+                <h2 className="font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl">
                   {title}
                 </h2>
 
-                <p className="mt-3 text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed break-words">
+                <p className="mt-3 text-gray-600 dark:text-gray-300 leading-relaxed">
                   {description}
                 </p>
 
-                {/* BUTTONS */}
-                <div className="mt-7 flex flex-col sm:flex-row gap-3">
-
-                  <button
-                    onClick={onClose}
-                    className="
-                      w-full sm:w-auto px-6 py-3
-                      rounded-xl text-white font-semibold
-                      bg-gradient-to-r from-blue-600 to-blue-700
-                      shadow-lg shadow-blue-600/30
-                      hover:scale-[1.02] transition-transform
-                    "
-                  >
-                    Continue
-                  </button>
-
-                  <button
-                    onClick={onClose}
-                    className="
-                      w-full sm:w-auto px-6 py-3 rounded-xl
-                      border border-gray-300 dark:border-gray-700
-                      text-gray-900 dark:text-gray-200
-                      bg-white dark:bg-transparent
-                      hover:bg-gray-50 dark:hover:bg-gray-900 transition
-                    "
-                  >
-                    Learn More
-                  </button>
-
-                </div>
+            
 
               </div>
+
             </div>
           </motion.div>
         </>

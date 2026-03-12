@@ -7,57 +7,91 @@ import { motion } from "framer-motion"
 
 export function PrincipalMessageSection() {
   return (
-    <section className="relative py-20 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-950">
+    <section className="relative py-24 bg-gradient-to-b from-white  to-slate-100 dark:from-slate-900 dark:to-slate-950 overflow-hidden">
+
+      {/* background decorative blur */}
+      <div className="absolute -top-24 -left-24 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-indigo-200/30 rounded-full blur-3xl"></div>
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          className="max-w-5xl mx-auto"
         >
-          {/* Accent line */}
-          <div className="mb-6">
-            <div className="h-1 w-28 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto" />
+
+          {/* Heading */}
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1 text-xs font-semibold tracking-widest text-blue-700 bg-blue-100 rounded-full">
+              LEADERSHIP MESSAGE
+            </span>
+
+            <h2 className="mt-4 text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white">
+              A Message from the Principal
+            </h2>
+
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Inspiring students to learn, grow and lead.
+            </p>
           </div>
 
-          <Card className="rounded-3xl shadow-md hover:shadow-2xl transition-shadow duration-300 border-0">
-            <CardContent className="p-6 md:p-10">
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                <div className="flex-shrink-0">
-                  <div className="w-36 h-36 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+          <Card className="rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 dark:border-slate-800">
+            <CardContent className="p-8 md:p-12">
+
+              <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
+
+                {/* principal image */}
+                <div className="flex-shrink-0 text-center">
+                  <div className="w-40 h-40 rounded-2xl overflow-hidden shadow-xl">
                     <Avatar className="w-full h-full">
-                      <AvatarImage src="/amit.png" alt="Dr. Margaret Thompson" />
-                      <AvatarFallback className="text-2xl">MT</AvatarFallback>
+                      <AvatarImage src="/amit.png" alt="Principal" />
+                      <AvatarFallback>PA</AvatarFallback>
                     </Avatar>
                   </div>
+
+                  <div className="mt-4">
+                    <p className="font-serif font-semibold text-lg text-slate-900 dark:text-white">
+                      Mr. Israj Ali
+                    </p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      Principal
+                    </p>
+                    <p className="text-xs text-slate-500 mt-1">
+                      25+ Years Experience
+                    </p>
+                  </div>
                 </div>
 
-                <div className="flex-1 text-center md:text-left">
-                  <div className="flex items-center justify-center md:justify-start">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/40 dark:to-indigo-900/40 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Quote className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                {/* message */}
+                <div className="flex-1">
+
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center">
+                      <Quote className="w-6 h-6 text-blue-600" />
                     </div>
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-serif font-bold text-slate-900 dark:text-white">A Message from the Principal</h3>
-                      <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">Committed to excellence, character and care.</p>
-                    </div>
+
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      Our Vision for Students
+                    </h3>
                   </div>
 
-                  <blockquote className="mt-6 text-lg text-slate-700 dark:text-slate-300 leading-relaxed italic">
-                    "At Aira Bal Vidya Mandir Inter College, we believe every child has the potential to achieve greatness.
-                    Our role is to provide a nurturing environment, exceptional teaching and comprehensive support so each
-                    student can discover and develop their talents to the fullest. We educate not only minds, but also
-                    character — shaping leaders and compassionate citizens for tomorrow."
+                  <blockquote className="text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed italic border-l-4 border-blue-600 pl-5">
+                    At Aira Bal Vidya Mandir Inter College, we believe every child has the
+                    potential to achieve greatness. Our mission is to create a nurturing
+                    learning environment where students develop knowledge, confidence,
+                    and strong moral values.
+                    <br /><br />
+                    We strive not only to educate minds but also to shape character,
+                    preparing young individuals to become responsible citizens and
+                    future leaders of society.
                   </blockquote>
 
-                  <div className="mt-6">
-                    <p className="font-serif font-semibold text-lg text-slate-900 dark:text-white">Mr. Israj Ali</p>
-                    <p className="text-sm text-slate-600 dark:text-slate-300">Principal, Aira Bal Vidya Mandir Inter College</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">• 25+ years experience</p>
-                  </div>
                 </div>
+
               </div>
+
             </CardContent>
           </Card>
         </motion.div>
