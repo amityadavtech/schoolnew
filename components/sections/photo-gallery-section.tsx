@@ -147,8 +147,9 @@ export function PhotoGallerySection({ showAll = false }: { showAll?: boolean }) 
                     <LazyImage
                       src={selectedImage.src || "/placeholder.svg"}
                       alt={selectedImage.alt || selectedImage.title}
-                      wrapperClassName="w-full h-auto max-h-[68vh]"
+                      wrapperClassName="w-full h-[68vh]"
                       imgClassName="object-contain rounded-lg"
+                      fill
                     />
                   </div>
 
